@@ -47,11 +47,11 @@ public class PlayerControllerTopDown : MonoBehaviour {
 
     private void HandleMovement() {
         // Player movement
-        moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         moveInput = moveInput.normalized;
-        moveVelocity = moveInput * moveSpeed * Time.deltaTime;
-        moveVelocity.y = -gravity * Time.deltaTime;
-        controller.Move(moveVelocity);
+        moveVelocity = moveInput * moveSpeed;
+        moveVelocity.y = -gravity;
+        controller.Move(moveVelocity * Time.deltaTime);
 
         // Camera movement
         cam.transform.localPosition = transform.position + cameraStartPosition;
