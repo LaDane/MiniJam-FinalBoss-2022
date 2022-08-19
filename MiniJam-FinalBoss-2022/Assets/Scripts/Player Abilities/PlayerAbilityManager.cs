@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerAbilityManager : MonoBehaviour {
 
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform hammerPoint;
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private Ability[] abilities;
+    public LayerMask groundLayer;
+    public Ability[] abilities;
 
     private bool isHoldingEnemy = false;
 
@@ -54,9 +57,28 @@ public class PlayerAbilityManager : MonoBehaviour {
                     else {
                         playerAnimator.Play(abilities[i].animationName);
                         abilities[i].remainingCooldown = abilities[i].cooldown;
+
+                        if (abilities[i].projectile != null) {
+                            StartCoroutine(InstantiateProjectile(abilities[i]));
+                        }
                     }
                 }
             }
+        }
+    }
+
+    private IEnumerator InstantiateProjectile(Ability ability) {
+        float delayTime = ability.spawnDelay;
+        while (delayTime > 0) {
+            delayTime -= Time.deltaTime;
+            yield return null;
+        }
+
+        RaycastHit hit;
+        Vector3 hammerOffset = new Vector3(hammerPoint.position.x, hammerPoint.position.y + 10f, hammerPoint.position.z);
+        if (Physics.Raycast(hammerOffset, Vector3.down, out hit, Mathf.Infinity, groundLayer)) {
+            GameObject projectileGO = Instantiate(ability.projectile, hit.point, playerTransform.rotation);
+            Debug.DrawLine(hammerOffset, hit.point, Color.green, 3f);
         }
     }
 

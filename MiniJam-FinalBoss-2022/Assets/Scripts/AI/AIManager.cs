@@ -50,10 +50,6 @@ public class AIManager : MonoBehaviour {
 
                 if (Vector3.Distance(units[i].transform.position, target.transform.position) > units[i].maxRange) {
                     units[i].SwitchStateMoving();
-                    //units[i].agent.isStopped = false;
-                    //units[i].animator.SetBool("attackMelee", false);
-                    //units[i].animator.SetBool("attackCast", false);
-                    //units[i].animator.SetBool("isMoving", true);
 
                     if (units[i].classType == ClassType.Tank || units[i].classType == ClassType.Rogue) {
                         units[i].MoveTo(new Vector3(
