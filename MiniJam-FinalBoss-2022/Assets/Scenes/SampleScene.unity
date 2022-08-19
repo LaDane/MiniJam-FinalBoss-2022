@@ -2063,10 +2063,10 @@ MonoBehaviour:
     lifeSpan: 0
     slowDownRate: 0
     speed: 0
-    size: 0
     spawnDelay: 0
     destroyDelay: 0
     thrust: 0
+    size: 0
     activationBtn: 0
   - abilityName: Ground Slam
     animationName: GroundSlam
@@ -2076,11 +2076,11 @@ MonoBehaviour:
       type: 3}
     lifeSpan: 2
     slowDownRate: 0.01
-    speed: 10
-    size: 0
+    speed: 14
     spawnDelay: 0.75
     destroyDelay: 5
-    thrust: 0
+    thrust: 1000
+    size: 8
     activationBtn: 0
   - abilityName: Hammer Quake
     animationName: HammerQuake
@@ -2090,10 +2090,10 @@ MonoBehaviour:
     lifeSpan: 0
     slowDownRate: 0
     speed: 0
-    size: 0
     spawnDelay: 0
     destroyDelay: 0
     thrust: 0
+    size: 0
     activationBtn: 0
   - abilityName: Fireball
     animationName: Fireball
@@ -2103,10 +2103,10 @@ MonoBehaviour:
     lifeSpan: 0
     slowDownRate: 0
     speed: 0
-    size: 0
     spawnDelay: 0
     destroyDelay: 0
     thrust: 0
+    size: 0
     activationBtn: 0
   - abilityName: Grab Throw
     animationName: Grab|Throw
@@ -2116,10 +2116,10 @@ MonoBehaviour:
     lifeSpan: 0
     slowDownRate: 0
     speed: 0
-    size: 0
     spawnDelay: 0
     destroyDelay: 0
     thrust: 0
+    size: 0
     activationBtn: 0
 --- !u!4 &1125483075
 Transform:
@@ -2736,8 +2736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveCounter: 0
-  timeBeforeFirstWave: 10
-  timeBetweenWaves: 20
+  timeBeforeFirstWave: 2
+  timeBetweenWaves: 5
   timeBetweenReduction: 0.1
   reduceTimeEveryXWave: 2
   minTimeBetweenWaves: 2
@@ -3467,7 +3467,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730902639}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44e7cbc59a5ae784e843606d6ce5d441, type: 3}
   m_Name: 
@@ -3518,7 +3518,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730902639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a00dff68b1299b4468fbc2b2eec8bff1, type: 3}
   m_Name: 
@@ -3530,9 +3530,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  camDistanceFromPlayer: 40
-  camUpDownAxisOffset: -15
-  camRotation: 70
+  camDistanceFromPlayer: 35
+  camUpDownAxisOffset: -25
+  camRotation: 45
 --- !u!1 &1810224303
 GameObject:
   m_ObjectHideFlags: 0

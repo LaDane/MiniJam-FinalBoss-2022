@@ -6,10 +6,12 @@ public class GroundSlam : MonoBehaviour {
 
     [SerializeField] private GameObject groundSlamElement;
     [SerializeField] private int elementsToSpawn = 10;
+    [SerializeField] private Rigidbody impactColliderRB;
 
     [HideInInspector] public Ability ability;
 
     private float dirOffset = 10f;
+    
 
     private void Start() {
         for (int i = 0; i < PlayerAbilityManager.Instance.abilities.Length; i++) {
@@ -28,6 +30,20 @@ public class GroundSlam : MonoBehaviour {
             Instantiate(groundSlamElement, transform.position, Quaternion.LookRotation(direction), transform);
         }
 
+        impactColliderRB.transform.localScale = new Vector3(ability.size, ability.size, ability.size);
+        
+
         Destroy(gameObject, ability.destroyDelay);          // Destroy after destroy delay time
+    }
+
+    private void Update() {
+        if (impactColliderRB != null) {
+            if (impactColliderRB.transform.localPosition.y < 2f) {
+                impactColliderRB.AddForce(0, ability.thrust * 1000 * Time.deltaTime, 0);
+            }
+            else {
+                Destroy(impactColliderRB.gameObject);
+            }
+        }
     }
 }

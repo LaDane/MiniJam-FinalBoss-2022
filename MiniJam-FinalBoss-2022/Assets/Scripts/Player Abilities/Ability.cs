@@ -18,13 +18,13 @@ public class Ability {
     public float lifeSpan;
     public float slowDownRate;
     public float speed;
-    public float size;
     public float spawnDelay;
     public float destroyDelay;
     //public float sizeMultiplier;
 
     [Header("Ragdoll Collider")]
     public float thrust;
+    public float size;
 
     [HideInInspector] public KeyCode activationBtn;
 }
