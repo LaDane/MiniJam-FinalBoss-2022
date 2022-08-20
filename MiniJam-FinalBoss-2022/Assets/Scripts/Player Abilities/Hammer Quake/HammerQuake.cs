@@ -8,6 +8,7 @@ public class HammerQuake : MonoBehaviour {
     [SerializeField] private Rigidbody boxImpactColliderRB;
     [SerializeField] private Rigidbody sphereImpactColliderRB;
     [SerializeField] private GameObject groundExplosion;
+    [SerializeField] private Transform flames;
     [SerializeField] private int groundExplosionsToSpawn = 5;
 
     [HideInInspector] public Ability ability;
@@ -61,6 +62,7 @@ public class HammerQuake : MonoBehaviour {
                     groundExplosionRB.velocity = direction * ability.speed;
 
                     StartCoroutine(SlowDown(groundExplosionRB));
+                    StartCoroutine(MoveFlamesDown());
 
                     Destroy(gameObject, ability.destroyDelay);
                 }
@@ -84,5 +86,29 @@ public class HammerQuake : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
         //Destroy(rb.gameObject, ability.destroyDelay);
+    }
+
+    private IEnumerator MoveFlamesDown() {
+        float timeElapsed = 0;
+        Vector3 startPos = flames.position;
+        Vector3 endPos = new Vector3(startPos.x, startPos.y - 9f, startPos.z);
+        while (timeElapsed < ability.lifeSpan + 2f) {
+            if (timeElapsed > 1f) {
+                flames.position = Vector3.Lerp(startPos, endPos, (timeElapsed -1f) / ability.lifeSpan);
+            }
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        //float time = ability.lifeSpan + 2f;
+        //Vector3 startPos = flames.position;
+        //Vector3 endPos = new Vector3(startPos.x, startPos.y - 5f, startPos.z);
+        //while (time > 0) {
+        //    if (time < ability.lifeSpan + 1f) {
+        //        flames.position = Vector3.Lerp(startPos, endPos, time);
+        //    }
+        //    time -= Time.deltaTime;
+        //    yield return new WaitForSeconds(0.1f);
+        //}
     }
 }

@@ -1429,7 +1429,7 @@ MonoBehaviour:
   moveEnemies: 1
   fireVFX: {fileID: 1346955130384818479, guid: 5c0883546d301f245b92447314fd2d82, type: 3}
   igniteTime: 0.1
-  flameDuration: 10
+  flameDuration: 5
 --- !u!4 &844011970
 Transform:
   m_ObjectHideFlags: 0
