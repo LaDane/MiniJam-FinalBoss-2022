@@ -409,6 +409,7 @@ MonoBehaviour:
   mageDmg: 2
   warlockDmg: 2
   rogueDmg: 3
+  regenAmount: 5
 --- !u!4 &343514592
 Transform:
   m_ObjectHideFlags: 0
@@ -2739,7 +2740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveCounter: 0
-  timeBeforeFirstWave: 2
+  timeBeforeFirstWave: 0.1
   timeBetweenWaves: 5
   timeBetweenReduction: 0.1
   reduceTimeEveryXWave: 2
@@ -3434,10 +3435,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1730902640}
+  - component: {fileID: 1730902647}
   - component: {fileID: 1730902643}
   - component: {fileID: 1730902644}
   - component: {fileID: 1730902641}
   - component: {fileID: 1730902645}
+  - component: {fileID: 1730902646}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -3536,6 +3539,33 @@ MonoBehaviour:
   camDistanceFromPlayer: 35
   camUpDownAxisOffset: -25
   camRotation: 45
+--- !u!114 &1730902646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730902639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8958480791b86204c941fc2c449c244d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  absorbDuration: 2
+  playerCenterPoint: {fileID: 228307721}
+--- !u!65 &1730902647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730902639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.81, y: 8.602076, z: 2.4788523}
+  m_Center: {x: 0, y: 3.8010387, z: 0.75035477}
 --- !u!1 &1810224303
 GameObject:
   m_ObjectHideFlags: 0

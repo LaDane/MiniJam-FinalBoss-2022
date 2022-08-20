@@ -92,7 +92,7 @@ public class WaveManager : MonoBehaviour {
 
             StartCoroutine(InstantiateGroup(GetRandomSpawnPos()));
 
-            Debug.Log("Wave = " + waveCounter + " | Time Between Waves = " + timeBetweenWaves + " | Amount of Groups = " + amountOfGroups);
+            //Debug.Log("Wave = " + waveCounter + " | Time Between Waves = " + timeBetweenWaves + " | Amount of Groups = " + amountOfGroups);
         }
     }
 

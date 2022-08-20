@@ -16,6 +16,9 @@ public class PlayerHealthManager : MonoBehaviour {
     [SerializeField] private int warlockDmg = 2;
     [SerializeField] private int rogueDmg = 3;
 
+    [Header("Regeneration")]
+    public int regenAmount = 5;
+
     private static PlayerHealthManager _instance;
     public static PlayerHealthManager Instance {
         get {

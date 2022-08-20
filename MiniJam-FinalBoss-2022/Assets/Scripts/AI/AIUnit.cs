@@ -21,8 +21,11 @@ public class AIUnit : MonoBehaviour {
 
     private Transform childTransform;
     private float ragdollTimer;
-    private bool ignitedFlames = false;
+
     private GameObject instantiatedFlames;
+    private Collider instantiatedFlamesCollider;
+    private bool ignitedFlames = false;
+    private bool dissapearing = false;
 
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
@@ -65,13 +68,15 @@ public class AIUnit : MonoBehaviour {
             if (ragdollTimer > AIManager.Instance.igniteTime && !ignitedFlames) {
                 ignitedFlames = true;
                 instantiatedFlames = Instantiate(AIManager.Instance.fireVFX, ragdollHips.position, Quaternion.identity);
+                instantiatedFlamesCollider = instantiatedFlames.GetComponent<SphereCollider>();
             }
-            if (instantiatedFlames != null) {
-                instantiatedFlames.transform.position = ragdollHips.position;
-            }
-            if (ragdollTimer > AIManager.Instance.igniteTime + AIManager.Instance.flameDuration) {
-                Destroy(instantiatedFlames);
+            if (ragdollTimer > AIManager.Instance.igniteTime + AIManager.Instance.flameDuration && !dissapearing) {
+                dissapearing = true;
                 StartCoroutine(ragdollOnOff.DissapearThroughGround());
+                Destroy(instantiatedFlames, 2f);
+            }
+            if (instantiatedFlames != null && instantiatedFlamesCollider.enabled) {
+                instantiatedFlames.transform.position = ragdollHips.position;
             }
         }
     }
