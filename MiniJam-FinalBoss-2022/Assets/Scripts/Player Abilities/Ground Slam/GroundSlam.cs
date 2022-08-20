@@ -31,7 +31,7 @@ public class GroundSlam : MonoBehaviour {
         }
 
         impactColliderRB.transform.localScale = new Vector3(ability.size, ability.size, ability.size);
-        
+        impactColliderRB.transform.localPosition = new Vector3(0, -ability.size, 0);
 
         Destroy(gameObject, ability.destroyDelay);          // Destroy after destroy delay time
     }

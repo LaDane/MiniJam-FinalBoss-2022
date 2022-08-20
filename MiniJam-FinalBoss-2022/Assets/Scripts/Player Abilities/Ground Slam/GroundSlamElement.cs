@@ -29,12 +29,12 @@ public class GroundSlamElement : MonoBehaviour {
     }
 
     private IEnumerator SlowDown() {
-        float time = 1;
+        float time = ability.lifeSpan;
         while (time > 0) {
             rb.velocity = Vector3.Lerp(Vector3.zero, rb.velocity, time);
             time -= ability.slowDownRate;
-            //yield return new WaitForSeconds(0.1f);
-            yield return new WaitForSeconds(Time.deltaTime * ability.lifeSpan);
+            yield return new WaitForSeconds(0.1f);
+            //yield return new WaitForSeconds(Time.deltaTime * ability.lifeSpan);
             //yield return null;
         }
         stopped = true;
