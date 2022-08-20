@@ -409,7 +409,7 @@ MonoBehaviour:
   mageDmg: 2
   warlockDmg: 2
   rogueDmg: 3
-  regenAmount: 5
+  regenAmount: 50
 --- !u!4 &343514592
 Transform:
   m_ObjectHideFlags: 0
@@ -2090,14 +2090,15 @@ MonoBehaviour:
     animationName: HammerQuake
     cooldown: 2
     remainingCooldown: 0
-    projectile: {fileID: 0}
-    lifeSpan: 0
-    slowDownRate: 0
-    speed: 0
-    spawnDelay: 0
-    destroyDelay: 0
-    thrust: 0
-    size: 0
+    projectile: {fileID: 2011316238121788018, guid: 090ce0bf2c3aa8a4681ef11d78c5d0e1,
+      type: 3}
+    lifeSpan: 0.7
+    slowDownRate: 0.1
+    speed: 6
+    spawnDelay: 0.75
+    destroyDelay: 5
+    thrust: 2000
+    size: 9
     activationBtn: 0
   - abilityName: Fireball
     animationName: Fireball
@@ -3551,7 +3552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8958480791b86204c941fc2c449c244d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  absorbDuration: 2
+  absorbDuration: 1
   playerCenterPoint: {fileID: 228307721}
 --- !u!65 &1730902647
 BoxCollider:

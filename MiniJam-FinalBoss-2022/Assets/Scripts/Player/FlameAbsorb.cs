@@ -7,8 +7,6 @@ public class FlameAbsorb : MonoBehaviour {
     [SerializeField] private float absorbDuration = 2f;
     [SerializeField] private Transform playerCenterPoint;
 
-    private List<Transform> absorbables = new List<Transform>();
-
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag.Equals("Absorbables")) {
             other.enabled = false;
@@ -20,9 +18,13 @@ public class FlameAbsorb : MonoBehaviour {
         float timeElapsed = 0;
         Vector3 startPos = flame.position;
         while (timeElapsed < absorbDuration) {
-            flame.position = Vector3.Lerp(startPos, transform.position, timeElapsed / absorbDuration);
+            flame.position = Vector3.Lerp(startPos, playerCenterPoint.position, timeElapsed / absorbDuration);
             timeElapsed += Time.deltaTime;
             yield return null;
+        }
+        PlayerHealthManager.Instance.playerHP += PlayerHealthManager.Instance.regenAmount;
+        if (PlayerHealthManager.Instance.playerHP > PlayerHealthManager.Instance.playerMaxHP) {
+            PlayerHealthManager.Instance.playerHP = PlayerHealthManager.Instance.playerMaxHP;
         }
         Destroy(flame.gameObject, 0.5f);
     }
