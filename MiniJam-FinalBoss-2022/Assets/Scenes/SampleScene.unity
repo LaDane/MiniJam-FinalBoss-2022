@@ -2074,7 +2074,7 @@ MonoBehaviour:
     remainingCooldown: 0
     projectile: {fileID: 6340175097815775547, guid: 845a921b378b2114585c1fbd41f2153c,
       type: 3}
-    lifeSpan: 2
+    lifeSpan: 0.8
     slowDownRate: 0.01
     speed: 14
     spawnDelay: 0.75
