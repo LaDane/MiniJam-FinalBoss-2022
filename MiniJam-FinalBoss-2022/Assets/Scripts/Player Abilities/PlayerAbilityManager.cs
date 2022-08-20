@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerAbilityManager : MonoBehaviour {
 
-    [SerializeField] private Transform playerTransform;
+    public Transform playerTransform;
     [SerializeField] private Transform hammerPoint;
+    public Transform leftHandPoint;
     [SerializeField] private Animator playerAnimator;
     public LayerMask groundLayer;
     public Ability[] abilities;
@@ -59,7 +60,12 @@ public class PlayerAbilityManager : MonoBehaviour {
                         abilities[i].remainingCooldown = abilities[i].cooldown;
 
                         if (abilities[i].projectile != null) {
-                            StartCoroutine(InstantiateProjectile(abilities[i]));
+                            if (abilities[i].animationName.Equals("Fireball")) {
+                                StartCoroutine(InstantiateProjectile(abilities[i], leftHandPoint));
+                            }
+                            else {
+                                StartCoroutine(InstantiateProjectile(abilities[i], hammerPoint));
+                            }
                         }
                     }
                 }
@@ -67,7 +73,7 @@ public class PlayerAbilityManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator InstantiateProjectile(Ability ability) {
+    private IEnumerator InstantiateProjectile(Ability ability, Transform startPoint) {
         float delayTime = ability.spawnDelay;
         while (delayTime > 0) {
             delayTime -= Time.deltaTime;
@@ -75,10 +81,10 @@ public class PlayerAbilityManager : MonoBehaviour {
         }
 
         RaycastHit hit;
-        Vector3 hammerOffset = new Vector3(hammerPoint.position.x, hammerPoint.position.y + 10f, hammerPoint.position.z);
-        if (Physics.Raycast(hammerOffset, Vector3.down, out hit, Mathf.Infinity, groundLayer)) {
+        Vector3 offset = new Vector3(startPoint.position.x, startPoint.position.y + 10f, startPoint.position.z);
+        if (Physics.Raycast(offset, Vector3.down, out hit, Mathf.Infinity, groundLayer)) {
             GameObject projectileGO = Instantiate(ability.projectile, hit.point, playerTransform.rotation);
-            Debug.DrawLine(hammerOffset, hit.point, Color.green, 3f);
+            Debug.DrawLine(offset, hit.point, Color.green, 3f);
         }
     }
 

@@ -1528,6 +1528,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898442055}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &946205631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946205632}
+  m_Layer: 0
+  m_Name: LeftHandPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946205632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946205631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0001015, z: 0.0000395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1829140402}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &947471537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,6 +2085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1730902640}
   hammerPoint: {fileID: 1925005744}
+  leftHandPoint: {fileID: 946205632}
   playerAnimator: {fileID: 1300706657}
   groundLayer:
     serializedVersion: 2
@@ -2104,13 +2136,14 @@ MonoBehaviour:
     animationName: Fireball
     cooldown: 2
     remainingCooldown: 0
-    projectile: {fileID: 0}
-    lifeSpan: 0
+    projectile: {fileID: 4337993127372496486, guid: 043c081a01cc33443ab5009ecaf32d51,
+      type: 3}
+    lifeSpan: 1.7
     slowDownRate: 0
     speed: 0
     spawnDelay: 0
-    destroyDelay: 0
-    thrust: 0
+    destroyDelay: 5
+    thrust: 800
     size: 0
     activationBtn: 0
   - abilityName: Grab Throw
@@ -3635,6 +3668,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1829140402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7255308819129370036, guid: 6e4badf2925cb2140875e298fcb93790,
+    type: 3}
+  m_PrefabInstance: {fileID: 576560379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1862226188
 GameObject:
   m_ObjectHideFlags: 0
