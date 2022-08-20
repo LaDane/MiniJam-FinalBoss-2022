@@ -108,6 +108,8 @@ MonoBehaviour:
   isAlive: 1
   isAttacking: 0
   attackAngleOffset: 0
+  ragdollOnOff: {fileID: 29013127314598853}
+  ragdollHips: {fileID: 6596771397425890293}
 --- !u!114 &29013127314598853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +127,6 @@ MonoBehaviour:
   armature: {fileID: 704358996682304108}
   animator: {fileID: 4109905273864858306}
   aIUnit: {fileID: 3839927984011315315}
-  disappearTime: 10
 --- !u!1001 &7522072113280751443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1202,6 +1203,12 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &6596771397425890293 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3742407835892290726, guid: afacee7971469b84fac6ec9f3d6d9b0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7522072113280751443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7140907514224791983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 827075974287967996, guid: afacee7971469b84fac6ec9f3d6d9b0c,

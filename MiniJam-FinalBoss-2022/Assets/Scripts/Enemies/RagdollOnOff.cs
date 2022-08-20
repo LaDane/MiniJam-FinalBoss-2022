@@ -9,7 +9,6 @@ public class RagdollOnOff : MonoBehaviour {
     [SerializeField] private GameObject armature;
     [SerializeField] private Animator animator;
     [SerializeField] private AIUnit aIUnit;
-    [SerializeField] private float disappearTime = 10f;
 
     private Collider[] ragdollColliders;
     private Rigidbody[] ragdollRigidbodies;
@@ -23,7 +22,7 @@ public class RagdollOnOff : MonoBehaviour {
         if (collision.gameObject.tag.Equals("RagdollActivator")) {
             aIUnit.isAlive = false;
             RagdollModeOn();
-            StartCoroutine(DissapearThroughGround());
+            //StartCoroutine(DissapearThroughGround());
         }
     }
 
@@ -59,9 +58,7 @@ public class RagdollOnOff : MonoBehaviour {
         mainRigidbody.isKinematic = false;
     }
 
-    private IEnumerator DissapearThroughGround() {
-        yield return new WaitForSeconds(disappearTime);
-
+    public IEnumerator DissapearThroughGround() {
         foreach (Collider c in ragdollColliders) {
             c.enabled = false;
         }
@@ -70,9 +67,10 @@ public class RagdollOnOff : MonoBehaviour {
         }
         mainRigidbody.isKinematic = false;
         mainRigidbody.useGravity = true;
-        // TODO: Spawn flames at pos
 
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(1f);
+        if (transform.position.y < 10f) {
+            Destroy(gameObject);
+        }
     }
 }

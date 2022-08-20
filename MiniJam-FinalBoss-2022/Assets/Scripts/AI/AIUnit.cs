@@ -16,7 +16,13 @@ public class AIUnit : MonoBehaviour {
     [HideInInspector] public bool isAttacking = false;
 
     [SerializeField] private float attackAngleOffset = 30f;
+    [SerializeField] private RagdollOnOff ragdollOnOff;
+    [SerializeField] private Transform ragdollHips;
+
     private Transform childTransform;
+    private float ragdollTimer;
+    private bool ignitedFlames = false;
+    private GameObject instantiatedFlames;
 
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
@@ -32,29 +38,41 @@ public class AIUnit : MonoBehaviour {
     }
 
     private void Update() {
-        if (!isAlive) {
+        if (isAlive) {
+            if (!PlayerHealthManager.Instance.isAlive) {
+                SwitchStateIdle();
+            }
+
+            // Rotate towards player when stopped
+            if (agent.isStopped) {
+                Vector3 targetDirection = AIManager.Instance.target.position - transform.position;
+                Quaternion spreadAngle = Quaternion.AngleAxis(attackAngleOffset, new Vector3(0, 1, 0));     // Offset look direction
+                targetDirection = spreadAngle * targetDirection;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 4f * Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDirection);
+            }
+            else {
+                // Fix child transform
+                childTransform.localRotation = Quaternion.identity;
+                childTransform.localPosition = Vector3.Lerp(childTransform.localPosition, Vector3.zero, 2f * Time.deltaTime);
+            }
+        }
+        else {
             if (agent.enabled) {
                 agent.enabled = false;
             }
-            return;
-        }
-
-        if (!PlayerHealthManager.Instance.isAlive) {
-            SwitchStateIdle();
-        }
-
-        // Rotate towards player when stopped
-        if (agent.isStopped) {
-            Vector3 targetDirection = AIManager.Instance.target.position - transform.position;
-            Quaternion spreadAngle = Quaternion.AngleAxis(attackAngleOffset, new Vector3(0, 1, 0));     // Offset look direction
-            targetDirection = spreadAngle * targetDirection;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 4f * Time.deltaTime, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
-        }
-        else {
-            // Fix child transform
-            childTransform.localRotation = Quaternion.identity;
-            childTransform.localPosition = Vector3.Lerp(childTransform.localPosition, Vector3.zero, 2f * Time.deltaTime);
+            ragdollTimer += Time.deltaTime;
+            if (ragdollTimer > AIManager.Instance.igniteTime && !ignitedFlames) {
+                ignitedFlames = true;
+                instantiatedFlames = Instantiate(AIManager.Instance.fireVFX, ragdollHips.position, Quaternion.identity);
+            }
+            if (instantiatedFlames != null) {
+                instantiatedFlames.transform.position = ragdollHips.position;
+            }
+            if (ragdollTimer > AIManager.Instance.igniteTime + AIManager.Instance.flameDuration) {
+                Destroy(instantiatedFlames);
+                StartCoroutine(ragdollOnOff.DissapearThroughGround());
+            }
         }
     }
 

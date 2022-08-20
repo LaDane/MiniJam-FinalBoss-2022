@@ -18,6 +18,11 @@ public class AIManager : MonoBehaviour {
     public List<AIUnit> units = new List<AIUnit>();
     public bool moveEnemies = true;
 
+    [Header("Fire")]
+    public GameObject fireVFX;
+    public float igniteTime = 5f;
+    public float flameDuration = 5f;
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
