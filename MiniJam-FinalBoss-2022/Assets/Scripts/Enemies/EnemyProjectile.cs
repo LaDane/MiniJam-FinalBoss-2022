@@ -5,27 +5,30 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour {
 
     [SerializeField] float durationMultiplier = 0.2f;
-
+    
     private float timeElapsed;
     private float lerpDuration;
     private Vector3 startPos;
-    private Vector3 endPos;
+    public Transform endPos;
+    private bool waitingDestroy = false;
 
     private void Start() {
         startPos = transform.position;
-        endPos = PlayerAbilityManager.Instance.playerCenterPoint.position;
-        lerpDuration = Vector3.Distance(startPos, endPos) * durationMultiplier;
+        endPos = PlayerAbilityManager.Instance.playerCenterPoint;
+        lerpDuration = Vector3.Distance(startPos, endPos.position) * durationMultiplier;
     }
 
     private void Update() {
         if (timeElapsed < lerpDuration) {
-            transform.position = Vector3.Lerp(startPos, PlayerAbilityManager.Instance.playerCenterPoint.position, timeElapsed / lerpDuration);
+            transform.position = Vector3.Lerp(startPos, endPos.position, timeElapsed / lerpDuration);
             Vector3 direction = (PlayerAbilityManager.Instance.playerCenterPoint.position - transform.position).normalized;
             transform.rotation = Quaternion.LookRotation(direction);
             timeElapsed += Time.deltaTime;
         }
         else {
-            Destroy(gameObject);
+            if (!waitingDestroy) {
+                Destroy(gameObject, 1f);
+            }
         }
     }
 }

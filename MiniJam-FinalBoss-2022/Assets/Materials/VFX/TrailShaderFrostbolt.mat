@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TrailShader
+  m_Name: TrailShaderFrostbolt
   m_Shader: {fileID: -6465566751694194690, guid: 1b86904ef68e01945bb23cebb87e5deb,
     type: 3}
   m_ValidKeywords: []
@@ -43,8 +43,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color01: {r: 1.0648196, g: 5.723406, b: 8.47419, a: 1}
-    - _Color02: {r: 0, g: 0, b: 39.396626, a: 1}
+    - _Color01: {r: 0.9253928, g: 6.083775, b: 9.819446, a: 1}
+    - _Color02: {r: 1.2859725, g: 7.2737527, b: 49.12416, a: 1}
     - _DissolveSpeed: {r: -1, g: 0, b: 0, a: 0}
     - _MainTexSpeed: {r: -0.5, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

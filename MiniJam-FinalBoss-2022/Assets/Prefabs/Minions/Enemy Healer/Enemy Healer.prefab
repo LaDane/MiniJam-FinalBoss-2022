@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7073352635995909069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8833704599199580847}
+  m_Layer: 6
+  m_Name: CastPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8833704599199580847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073352635995909069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00105, y: 0.00207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2363165529454265324}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8093188460541208475
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +138,7 @@ MonoBehaviour:
   idealRange: 0
   isAlive: 1
   isAttacking: 0
-  attackAngleOffset: 0
+  attackAngleOffset: 50
   ragdollOnOff: {fileID: 29013127314598853}
   ragdollHips: {fileID: 6596771397425890293}
 --- !u!114 &29013127314598853
@@ -1542,6 +1573,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7522072113280751443}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2363165529454265324 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5235542580789859519, guid: afacee7971469b84fac6ec9f3d6d9b0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7522072113280751443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2668342976082372168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3646755201719406309, guid: afacee7971469b84fac6ec9f3d6d9b0c,
@@ -2040,7 +2077,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7522072113280751443}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2088947373067261572
+--- !u!114 &1814124641507742159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2049,11 +2086,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7251549022324107778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e22d8150ba8564985f4d9ed5a2b777, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d00b64dfd07ee4458c71578d3889175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpawnPos: {fileID: 0}
-  projectile: {fileID: 0}
+  projectileSpawnPos: {fileID: 8833704599199580847}
+  projectile: {fileID: 4334076966249530482, guid: e6a4d23bda5156748a2789961e50e356,
+    type: 3}
 --- !u!4 &7938621551793677175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 452720090720547876, guid: afacee7971469b84fac6ec9f3d6d9b0c,

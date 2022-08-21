@@ -15,7 +15,7 @@ public class AIUnit : MonoBehaviour {
     [HideInInspector] public bool isAlive = true;
     [HideInInspector] public bool isAttacking = false;
 
-    [SerializeField] private float attackAngleOffset = 30f;
+    public float attackAngleOffset = 30f;
     [SerializeField] private RagdollOnOff ragdollOnOff;
     [SerializeField] private Transform ragdollHips;
 
@@ -47,7 +47,7 @@ public class AIUnit : MonoBehaviour {
             }
 
             // Rotate towards player when stopped
-            if (agent.isStopped) {
+            if (agent.isStopped && classType != ClassType.Healer) {
                 Vector3 targetDirection = AIManager.Instance.target.position - transform.position;
                 Quaternion spreadAngle = Quaternion.AngleAxis(attackAngleOffset, new Vector3(0, 1, 0));     // Offset look direction
                 targetDirection = spreadAngle * targetDirection;
@@ -105,6 +105,7 @@ public class AIUnit : MonoBehaviour {
         animator.SetBool("attackMelee", false);
         animator.SetBool("attackCast", false);
         animator.SetBool("attackBow", false);
+        animator.SetBool("heal", false);
         animator.SetBool("isMoving", true);
     }
 
@@ -114,7 +115,7 @@ public class AIUnit : MonoBehaviour {
         animator.SetBool("isMoving", false);
         switch (classType) {
             case ClassType.Tank: animator.SetBool("attackMelee", true); break;
-            case ClassType.Healer: break;
+            case ClassType.Healer: animator.SetBool("heal", true); break;
             case ClassType.Mage: animator.SetBool("attackCast", true); break;
             case ClassType.Warlock: animator.SetBool("attackBow", true); break;
             case ClassType.Rogue: animator.SetBool("attackMelee", true); break;
@@ -127,6 +128,7 @@ public class AIUnit : MonoBehaviour {
         animator.SetBool("attackMelee", false);
         animator.SetBool("attackCast", false);
         animator.SetBool("attackBow", false);
+        animator.SetBool("heal", false);
         animator.SetBool("isMoving", false);
     }
 }

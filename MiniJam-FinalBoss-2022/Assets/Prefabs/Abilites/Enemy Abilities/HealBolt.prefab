@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6428619510127093506}
   - component: {fileID: 5454361395826012521}
   m_Layer: 0
-  m_Name: FrostBolt
+  m_Name: HealBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d865603abd1b9e4ca77cb9e9d7c3b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationMultiplier: 0.02
+  durationMultiplier: 0.08
+  isHeal: 0
+  endPos: {fileID: 0}
 --- !u!1 &5193035025314869939
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +123,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.8
+  m_Time: 1.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 2
@@ -193,17 +195,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 723a9dc63df3ba744add4175f593b99c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 56.4
+      value: 39.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 723a9dc63df3ba744add4175f593b99c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 56.4
+      value: 39.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 723a9dc63df3ba744add4175f593b99c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 56.4
+      value: 39.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 723a9dc63df3ba744add4175f593b99c,
         type: 3}
@@ -264,7 +266,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c6ebef0a57e916e49a4ea4f4eafb27fc, type: 2}
+      objectReference: {fileID: 2100000, guid: b4bb8036e1d60ff458c8e32ad20071df, type: 2}
     - target: {fileID: 919132149155446097, guid: 723a9dc63df3ba744add4175f593b99c,
         type: 3}
       propertyPath: m_Name
