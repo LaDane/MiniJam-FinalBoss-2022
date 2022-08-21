@@ -22,6 +22,7 @@ public class PlayerControllerWoW : MonoBehaviour {
     void Start() {
         cam.transform.localPosition = cameraStartPosition;
         cam.transform.localRotation = Quaternion.Euler(cameraStartRotation);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update() {
@@ -32,6 +33,9 @@ public class PlayerControllerWoW : MonoBehaviour {
         GetInputs();
         Locomotion();
         AnimatePlayer();
+
+        // Fix player pos
+        animator.transform.localPosition = new Vector3(0, -0.2f, 0);
     }
 
     private void AnimatePlayer() {

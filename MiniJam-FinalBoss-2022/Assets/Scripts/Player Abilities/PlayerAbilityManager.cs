@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAbilityManager : MonoBehaviour {
 
     public Transform playerTransform;
+    public Transform playerCenterPoint;
     [SerializeField] private Transform hammerPoint;
     public Transform leftHandPoint;
     [SerializeField] private Animator playerAnimator;

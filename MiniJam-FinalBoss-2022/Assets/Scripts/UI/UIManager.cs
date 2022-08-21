@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour {
                 string waveStatsString = WaveManager.Instance.waveCounter.ToString();
                 killStats.text = "Minions killed: " + killStatsString;
                 waveStats.text = "Waves reached: " + waveStatsString;
-
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
