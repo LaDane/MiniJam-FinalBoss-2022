@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject ability1;
     [SerializeField] private GameObject ability2;
     [SerializeField] private GameObject ability3;
-    [SerializeField] private GameObject ability4;
+    //[SerializeField] private GameObject ability4;
 
     [Header("Game Over Stats")]
     [SerializeField] private Text killStats;
@@ -119,50 +119,54 @@ public class UIManager : MonoBehaviour {
                 }
                 break;
             case 3:
+                /*
                 killTarget = killTarget4;
                 if (kills >= killTarget) {
                     ability4.SetActive(true);
                     killPhaseStart = kills;
                     PlayerAbilityManager.Instance.abilities[4].isActive = true;
                     stage = 4;
-                }
+                }*/
                 break;
             case 4:
                 break;
         }
 
-        for(int i = 0; i < PlayerAbilityManager.Instance.abilities.Length; i++) {
+        for(int i = 0; i < PlayerAbilityManager.Instance.abilities.Length-1; i++) {
             if (PlayerAbilityManager.Instance.abilities[i].remainingCooldown == PlayerAbilityManager.Instance.abilities[i].cooldown) {
                 switch (PlayerAbilityManager.Instance.abilities[i].abilityName) {
-                    case "Ground Slam":
+                    case "Fireball":
                         ability1.GetComponent<Image>().fillAmount = 0f;
                         break;
-                    case "Hammer Quake":
+                    case "Ground Slam":
                         ability2.GetComponent<Image>().fillAmount = 0f;
                         break;
-                    case "Grab Throw":
+                    case "Hammer Quake":
                         ability3.GetComponent<Image>().fillAmount = 0f;
                         break;
-                    case "Fireball":
-                        ability4.GetComponent<Image>().fillAmount = 0f;
-                        break;
+  /*                  case "Grab Throw":
+                        ability3.GetComponent<Image>().fillAmount = 0f;
+                        break;*/
+ 
                 }
 
             }
+            
             if(PlayerAbilityManager.Instance.abilities[i].remainingCooldown > 0) {
                 switch (PlayerAbilityManager.Instance.abilities[i].abilityName) {
-                    case "Ground Slam":
+                    case "Fireball":
                         ability1.GetComponent<Image>().fillAmount = 1 - ((float)PlayerAbilityManager.Instance.abilities[i].remainingCooldown / (float)PlayerAbilityManager.Instance.abilities[i].cooldown);
                         break;
-                    case "Hammer Quake":
+                    case "Ground Slam":
                         ability2.GetComponent<Image>().fillAmount = 1 - ((float)PlayerAbilityManager.Instance.abilities[i].remainingCooldown / (float)PlayerAbilityManager.Instance.abilities[i].cooldown);
                         break;
-                    case "Grab Throw":
+                    case "Hammer Quake":
                         ability3.GetComponent<Image>().fillAmount = 1 - ((float)PlayerAbilityManager.Instance.abilities[i].remainingCooldown / (float)PlayerAbilityManager.Instance.abilities[i].cooldown);
                         break;
-                    case "Fireball":
-                        ability4.GetComponent<Image>().fillAmount = 1 - ((float)PlayerAbilityManager.Instance.abilities[i].remainingCooldown / (float)PlayerAbilityManager.Instance.abilities[i].cooldown);
-                        break;
+        /*            case "Grab Throw":
+                        ability3.GetComponent<Image>().fillAmount = 1 - ((float)PlayerAbilityManager.Instance.abilities[i].remainingCooldown / (float)PlayerAbilityManager.Instance.abilities[i].cooldown);
+                        break;*/
+
                 }
             }
         }
