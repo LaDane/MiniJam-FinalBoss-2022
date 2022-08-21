@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseScreenController : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class PauseScreenController : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         UIManager.Instance.ButtonRestart();
+    }
+
+    public void onMainMenuButtonPress() {
+
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Update is called once per frame
