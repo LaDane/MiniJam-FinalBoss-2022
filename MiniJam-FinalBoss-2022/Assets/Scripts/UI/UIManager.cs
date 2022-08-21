@@ -185,5 +185,6 @@ public class UIManager : MonoBehaviour {
 
     public void ButtonMainMenu() {
         Debug.Log("Main Menu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
