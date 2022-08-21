@@ -874,14 +874,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
-  playerMaxHP: 250
-  playerHP: 1000
-  tankDmg: 4
+  playerMaxHP: 2000
+  playerHP: 2000
+  tankDmg: 6
   healerDmg: 0
-  mageDmg: 2
+  mageDmg: 1
   warlockDmg: 2
-  rogueDmg: 3
-  regenAmount: 50
+  rogueDmg: 8
+  regenAmount: 10
 --- !u!4 &343514592
 Transform:
   m_ObjectHideFlags: 0
@@ -3695,7 +3695,7 @@ MonoBehaviour:
   - abilityName: Ground Slam
     animationName: GroundSlam
     isActive: 0
-    cooldown: 2
+    cooldown: 7
     remainingCooldown: 0
     projectile: {fileID: 6340175097815775547, guid: 845a921b378b2114585c1fbd41f2153c,
       type: 3}
@@ -3710,7 +3710,7 @@ MonoBehaviour:
   - abilityName: Hammer Quake
     animationName: HammerQuake
     isActive: 0
-    cooldown: 2
+    cooldown: 15
     remainingCooldown: 0
     projectile: {fileID: 2011316238121788018, guid: 090ce0bf2c3aa8a4681ef11d78c5d0e1,
       type: 3}
@@ -3725,7 +3725,7 @@ MonoBehaviour:
   - abilityName: Fireball
     animationName: Fireball
     isActive: 0
-    cooldown: 2
+    cooldown: 5
     remainingCooldown: 0
     projectile: {fileID: 4337993127372496486, guid: 043c081a01cc33443ab5009ecaf32d51,
       type: 3}
@@ -4541,16 +4541,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveCounter: 0
   kills: 0
-  killTarget1: 20
-  killTarget2: 40
-  killTarget3: 60
-  killTarget4: 80
-  timeBeforeFirstWave: 0.1
-  timeBetweenWaves: 5
-  timeBetweenReduction: 0.1
-  reduceTimeEveryXWave: 2
-  minTimeBetweenWaves: 2
-  increaseGroupsEveryXWave: 5
+  killTarget1: 10
+  killTarget2: 80
+  killTarget3: 200
+  killTarget4: 400
+  timeBeforeFirstWave: 2
+  timeBetweenWaves: 20
+  timeBetweenReduction: 0
+  reduceTimeEveryXWave: 1
+  minTimeBetweenWaves: 10
+  increaseGroupsEveryXWave: 1
+  amountOfGroups: 1
   spawnPositions:
   - {fileID: 89218010}
   - {fileID: 25069135}
@@ -6615,12 +6616,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankMax: 5
   tankIdeal: 3
-  healerMax: 30
-  healerIdeal: 17
-  mageMax: 20
-  mageIdeal: 15
-  warlockMax: 25
-  warlockIdeal: 20
+  healerMax: 25
+  healerIdeal: 20
+  mageMax: 40
+  mageIdeal: 35
+  warlockMax: 20
+  warlockIdeal: 15
   rogueMax: 5
   rogueIdeal: 3
 --- !u!4 &1943555094

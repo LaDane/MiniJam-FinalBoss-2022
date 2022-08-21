@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour {
 
     [Header("Amount of Groups")]
     [SerializeField] private int increaseGroupsEveryXWave = 3;
-    private int amountOfGroups = 1;
+    [SerializeField] private int amountOfGroups = 1;
 
     [Header("Spawn Positions")]
     [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
