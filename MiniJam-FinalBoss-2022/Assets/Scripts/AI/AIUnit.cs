@@ -104,6 +104,7 @@ public class AIUnit : MonoBehaviour {
         agent.isStopped = false;
         animator.SetBool("attackMelee", false);
         animator.SetBool("attackCast", false);
+        animator.SetBool("attackBow", false);
         animator.SetBool("isMoving", true);
     }
 
@@ -115,7 +116,7 @@ public class AIUnit : MonoBehaviour {
             case ClassType.Tank: animator.SetBool("attackMelee", true); break;
             case ClassType.Healer: break;
             case ClassType.Mage: animator.SetBool("attackCast", true); break;
-            case ClassType.Warlock: animator.SetBool("attackCast", true); break;
+            case ClassType.Warlock: animator.SetBool("attackBow", true); break;
             case ClassType.Rogue: animator.SetBool("attackMelee", true); break;
         }
     }
@@ -125,6 +126,7 @@ public class AIUnit : MonoBehaviour {
         agent.isStopped = true;
         animator.SetBool("attackMelee", false);
         animator.SetBool("attackCast", false);
+        animator.SetBool("attackBow", false);
         animator.SetBool("isMoving", false);
     }
 }
