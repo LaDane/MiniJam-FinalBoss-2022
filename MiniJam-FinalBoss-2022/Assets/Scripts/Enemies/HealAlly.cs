@@ -9,6 +9,7 @@ public class HealAlly : MonoBehaviour {
 
     private AIUnit aiUnit;
     private GameObject bolt;
+    private EnemyProjectile enemyProjectile;
 
     private void Start() {
         aiUnit = transform.GetComponentInParent<AIUnit>();
@@ -17,7 +18,7 @@ public class HealAlly : MonoBehaviour {
     private void Update() {
         if (allyToHeal != null) {
             if (bolt != null) {
-                bolt.GetComponent<EnemyProjectile>().endPos = allyToHeal;
+                enemyProjectile.endPos = allyToHeal;
             }
             Vector3 targetDirection = allyToHeal.position - transform.position;
             Quaternion spreadAngle = Quaternion.AngleAxis(aiUnit.attackAngleOffset, new Vector3(0, 1, 0));     // Offset look direction
@@ -32,5 +33,6 @@ public class HealAlly : MonoBehaviour {
         allyToHeal = AIManager.Instance.units[Random.Range(0, AIManager.Instance.units.Count)].transform;
         Vector3 direction = (allyToHeal.position - projectileSpawnPos.position).normalized;
         bolt = Instantiate(projectile, projectileSpawnPos.position, Quaternion.LookRotation(direction), null);
+        enemyProjectile = bolt.GetComponent<EnemyProjectile>();
     }
 }
