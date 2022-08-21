@@ -76,7 +76,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.4
-  m_Speed: 5
+  m_Speed: 7
   m_Acceleration: 100
   avoidancePriority: 52
   m_AngularSpeed: 200
@@ -2077,6 +2077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e22d8150ba8564985f4d9ed5a2b777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileSpawnPos: {fileID: 0}
+  projectile: {fileID: 0}
 --- !u!4 &7938621551793677175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 452720090720547876, guid: afacee7971469b84fac6ec9f3d6d9b0c,

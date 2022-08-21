@@ -5423,7 +5423,7 @@ MonoBehaviour:
   controller: {fileID: 1730902643}
   cam: {fileID: 330585545}
   animator: {fileID: 61250610}
-  moveSpeed: 3
+  moveSpeed: 4
   rotateSpeed: 40
   gravity: 10
 --- !u!143 &1730902643
@@ -6260,7 +6260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c345f7ad29b630345af7adaf1afca802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankMax: 7
+  tankMax: 8
   tankIdeal: 3
   healerMax: 25
   healerIdeal: 20
@@ -6268,7 +6268,7 @@ MonoBehaviour:
   mageIdeal: 35
   warlockMax: 20
   warlockIdeal: 15
-  rogueMax: 7
+  rogueMax: 8
   rogueIdeal: 3
 --- !u!4 &1943555094
 Transform:
