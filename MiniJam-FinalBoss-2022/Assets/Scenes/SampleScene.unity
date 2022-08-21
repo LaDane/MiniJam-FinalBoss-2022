@@ -5560,7 +5560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1730902643}
   cam: {fileID: 330585545}
-  moveSpeed: 5
+  moveSpeed: 7.5
   rotateSpeed: 40
   gravity: 10
 --- !u!143 &1730902643
