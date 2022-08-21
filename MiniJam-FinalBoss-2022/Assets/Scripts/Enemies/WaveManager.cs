@@ -6,6 +6,13 @@ public class WaveManager : MonoBehaviour {
 
     public int waveCounter = 0;
 
+    [Header("Kill target")]
+    public int kills = 0;
+    public int killTarget1 = 20;
+    public int killTarget2 = 40;
+    public int killTarget3 = 60;
+    public int killTarget4 = 80;
+
     [Header("Time Between Waves")]
     [SerializeField] private float timeBeforeFirstWave = 3f;
     [SerializeField] private float timeBetweenWaves = 5f;

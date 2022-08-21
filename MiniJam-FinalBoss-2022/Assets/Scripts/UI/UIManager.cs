@@ -6,9 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
 
+    [Header("UI Objects")]
     [SerializeField] private Image healthBar;
     [SerializeField] private Image killBar;
+    [SerializeField] private Text killText;
     [SerializeField] private GameObject gameOverScreen;
+
+    [Header("Ability Fetchers")]
+    [SerializeField] private GameObject ability1;
+    [SerializeField] private GameObject ability2;
+    [SerializeField] private GameObject ability3;
+    [SerializeField] private GameObject ability4;
+
+    int killPhaseStart = 0;
+    int killTarget = 0;
+    int stage = 0;
 
     private bool displayingGameOverScreen = false;
 
@@ -32,11 +44,13 @@ public class UIManager : MonoBehaviour {
 
     private void Start() {
         gameOverScreen.SetActive(false);
+
     }
 
     private void Update() {
         if (PlayerHealthManager.Instance.isAlive) {
             UpdateHealthBar();
+            UpdateKillCount();
         }
         else {
             if (!displayingGameOverScreen) {
@@ -48,6 +62,70 @@ public class UIManager : MonoBehaviour {
 
     private void UpdateHealthBar() {
         healthBar.fillAmount = (float)PlayerHealthManager.Instance.playerHP / (float)PlayerHealthManager.Instance.playerMaxHP;
+    }
+
+    private void UpdateKillCount() {
+
+
+        int kills = AIManager.Instance.killCount;
+   
+        int killTarget1 = WaveManager.Instance.killTarget1;
+        int killTarget2 = WaveManager.Instance.killTarget2;
+        int killTarget3 = WaveManager.Instance.killTarget3;
+        int killTarget4 = WaveManager.Instance.killTarget4;
+
+        string killsString;
+
+        switch (stage) {
+            case 0:
+                Debug.Log(PlayerAbilityManager.Instance.abilities);
+                PlayerAbilityManager.Instance.abilities[0].isActive = true;
+                killTarget = killTarget1;
+                if(kills >= killTarget) {
+                    ability1.SetActive(true);
+                    killPhaseStart = kills;
+                    killBar.fillAmount = 0f;
+                    PlayerAbilityManager.Instance.abilities[1].isActive = true;
+                    stage = 1;
+                }
+                break;
+            case 1:
+                killTarget = killTarget2;
+                if (kills >= killTarget) {
+                    ability2.SetActive(true);
+                    killPhaseStart = kills;
+                    killBar.fillAmount = 0f;
+                    PlayerAbilityManager.Instance.abilities[2].isActive = true;
+                    stage = 2;
+                }
+                break;
+            case 2:
+                killTarget = killTarget3;
+                if (kills >= killTarget) {
+                    ability3.SetActive(true);
+                    killPhaseStart = kills;
+                    PlayerAbilityManager.Instance.abilities[3].isActive = true;
+                    //killBar.fillAmount = 0f;
+                    stage = 3;
+                }
+                break;
+            case 3:
+                killTarget = killTarget4;
+                if (kills >= killTarget) {
+                    ability4.SetActive(true);
+                    killPhaseStart = kills;
+                    PlayerAbilityManager.Instance.abilities[4].isActive = true;
+                    stage = 4;
+                }
+                break;
+            case 4:
+                break;
+        }
+
+        killBar.fillAmount = ((float)kills - (float)killPhaseStart) / ((float)killTarget - (float)killPhaseStart);
+
+        killsString = kills.ToString();
+        killText.text = killsString;
     }
 
     public void ButtonRestart() {

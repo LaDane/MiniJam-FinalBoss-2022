@@ -23,6 +23,8 @@ public class AIManager : MonoBehaviour {
     public float igniteTime = 5f;
     public float flameDuration = 5f;
 
+    public int killCount = 0;
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -49,6 +51,9 @@ public class AIManager : MonoBehaviour {
                 //yield return new WaitForSeconds(0.01f);
                 //yield return null;
                 if (!units[i].isAlive) {
+                    //Count kills based on if a unit is no longer alive.
+                    killCount++;
+
                     units.Remove(units[i]);
                     continue;
                 }

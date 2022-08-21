@@ -43,7 +43,7 @@ public class PlayerAbilityManager : MonoBehaviour {
 
             // Calculate ability cooldown
             abilities[i].remainingCooldown -= Time.deltaTime;
-            if (abilities[i].remainingCooldown <= 0) {
+            if (abilities[i].remainingCooldown <= 0 && abilities[i].isActive) {
                 abilities[i].remainingCooldown = 0;
 
                 // Play ability animation on key down

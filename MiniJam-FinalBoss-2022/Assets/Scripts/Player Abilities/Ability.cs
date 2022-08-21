@@ -9,6 +9,9 @@ public class Ability {
     public string abilityName;
     public string animationName;
 
+    [Header("Ability Unlocked")]
+    public bool isActive = false;
+
     [Header("Cooldown")]
     public float cooldown;
     [HideInInspector] public float remainingCooldown;
