@@ -3427,6 +3427,21 @@ MonoBehaviour:
     thrust: 0
     size: 0
     activationBtn: 0
+  - abilityName: Fireball
+    animationName: Fireball
+    isActive: 0
+    cooldown: 5
+    remainingCooldown: 0
+    projectile: {fileID: 4337993127372496486, guid: 043c081a01cc33443ab5009ecaf32d51,
+      type: 3}
+    lifeSpan: 1.2
+    slowDownRate: 0
+    speed: 0
+    spawnDelay: 0
+    destroyDelay: 5
+    thrust: 800
+    size: 0
+    activationBtn: 0
   - abilityName: Ground Slam
     animationName: GroundSlam
     isActive: 0
@@ -3456,21 +3471,6 @@ MonoBehaviour:
     destroyDelay: 5
     thrust: 2000
     size: 9
-    activationBtn: 0
-  - abilityName: Fireball
-    animationName: Fireball
-    isActive: 0
-    cooldown: 5
-    remainingCooldown: 0
-    projectile: {fileID: 4337993127372496486, guid: 043c081a01cc33443ab5009ecaf32d51,
-      type: 3}
-    lifeSpan: 1.2
-    slowDownRate: 0
-    speed: 0
-    spawnDelay: 0
-    destroyDelay: 5
-    thrust: 800
-    size: 0
     activationBtn: 0
   - abilityName: Grab Throw
     animationName: Grab|Throw
