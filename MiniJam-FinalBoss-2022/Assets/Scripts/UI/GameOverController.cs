@@ -6,6 +6,7 @@ public class GameOverController : MonoBehaviour {
 
     public void OnRestartBtnPress() {
         UIManager.Instance.ButtonRestart();
+        Debug.Log("Test");
     }
 
     public void OnMainMenuBtnPress() {

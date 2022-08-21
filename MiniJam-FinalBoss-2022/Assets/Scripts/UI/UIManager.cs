@@ -18,6 +18,11 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject ability3;
     [SerializeField] private GameObject ability4;
 
+    [Header("Game Over Stats")]
+    [SerializeField] private Text killStats;
+    [SerializeField] private Text timeStats;
+    [SerializeField] private Text waveStats;
+
     int killPhaseStart = 0;
     int killTarget = 0;
     int stage = 0;
@@ -56,6 +61,11 @@ public class UIManager : MonoBehaviour {
             if (!displayingGameOverScreen) {
                 displayingGameOverScreen = true;
                 gameOverScreen.SetActive(true);
+                string killStatsString = AIManager.Instance.killCount.ToString();
+                string waveStatsString = WaveManager.Instance.waveCounter.ToString();
+                killStats.text = "Minions killed: " + killStatsString;
+                waveStats.text = "Waves reached: " + waveStatsString;
+
             }
         }
     }
@@ -78,7 +88,6 @@ public class UIManager : MonoBehaviour {
 
         switch (stage) {
             case 0:
-                Debug.Log(PlayerAbilityManager.Instance.abilities);
                 PlayerAbilityManager.Instance.abilities[0].isActive = true;
                 killTarget = killTarget1;
                 if(kills >= killTarget) {
