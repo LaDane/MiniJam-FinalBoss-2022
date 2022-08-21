@@ -23,4 +23,8 @@ public class ControlOptions {
     public KeyCode hammerQuake;
     public KeyCode fireball;
     public KeyCode grabThrow;
+
+    [Header("Menus")]
+    public KeyCode escapeButton;
+    public KeyCode pButton;
 }

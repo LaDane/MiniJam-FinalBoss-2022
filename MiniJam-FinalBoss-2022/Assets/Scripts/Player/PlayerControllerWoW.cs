@@ -30,6 +30,9 @@ public class PlayerControllerWoW : MonoBehaviour {
             inputs = Vector2.zero;
             return;
         }
+        if(Time.timeScale == 0) {
+            return;
+        }
         GetInputs();
         Locomotion();
         AnimatePlayer();
