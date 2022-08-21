@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
 
     [SerializeField] private Image healthBar;
+    [SerializeField] private Image killBar;
     [SerializeField] private GameObject gameOverScreen;
 
     private bool displayingGameOverScreen = false;
