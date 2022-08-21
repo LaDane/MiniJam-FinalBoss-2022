@@ -18,6 +18,9 @@ public class FlameAbsorb : MonoBehaviour {
         float timeElapsed = 0;
         Vector3 startPos = flame.position;
         while (timeElapsed < absorbDuration) {
+            if (flame == null) {
+                break;
+            }
             flame.position = Vector3.Lerp(startPos, playerCenterPoint.position, timeElapsed / absorbDuration);
             timeElapsed += Time.deltaTime;
             yield return null;
@@ -26,6 +29,8 @@ public class FlameAbsorb : MonoBehaviour {
         if (PlayerHealthManager.Instance.playerHP > PlayerHealthManager.Instance.playerMaxHP) {
             PlayerHealthManager.Instance.playerHP = PlayerHealthManager.Instance.playerMaxHP;
         }
-        Destroy(flame.gameObject, 0.5f);
+        if (flame != null) {
+            Destroy(flame.gameObject, 0.5f);
+        }
     }
 }

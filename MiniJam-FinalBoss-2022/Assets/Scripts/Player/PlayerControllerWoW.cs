@@ -6,6 +6,7 @@ public class PlayerControllerWoW : MonoBehaviour {
 
     [SerializeField] private CharacterController controller;
     [SerializeField] private Camera cam;
+    [SerializeField] private Animator animator;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float rotateSpeed = 0.1f;
     [SerializeField] private float gravity = 3f;
@@ -15,8 +16,8 @@ public class PlayerControllerWoW : MonoBehaviour {
     private Vector2 mouseRotation;
     private Vector3 velocity;
 
-    private Vector3 cameraStartPosition = new Vector3(0, 20.75f, -5.3f);
-    private Vector3 cameraStartRotation = new Vector3(48, 0, 0);
+    private Vector3 cameraStartPosition = new Vector3(0, 21f, -6.5f);
+    private Vector3 cameraStartRotation = new Vector3(50, 0, 0);
 
     void Start() {
         cam.transform.localPosition = cameraStartPosition;
@@ -25,10 +26,20 @@ public class PlayerControllerWoW : MonoBehaviour {
 
     void Update() {
         if (!PlayerHealthManager.Instance.isAlive) {
+            inputs = Vector2.zero;
             return;
         }
         GetInputs();
         Locomotion();
+        AnimatePlayer();
+    }
+
+    private void AnimatePlayer() {
+        animator.SetFloat("Velocity Z", Input.GetAxisRaw("Vertical"));
+        animator.SetFloat("Velocity X", Input.GetAxis("Horizontal"));
+
+        //animator.SetFloat("Velocity Z", inputs.y);
+        //animator.SetFloat("Velocity X", inputs.x);
     }
 
     void Locomotion() {

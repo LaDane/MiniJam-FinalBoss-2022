@@ -9,6 +9,7 @@ public class PlayerAbilityManager : MonoBehaviour {
     public Transform leftHandPoint;
     [SerializeField] private Animator playerAnimator;
     public LayerMask groundLayer;
+    [SerializeField] private bool allUnlocked = false;
     public Ability[] abilities;
 
     private bool isHoldingEnemy = false;
@@ -33,6 +34,11 @@ public class PlayerAbilityManager : MonoBehaviour {
 
     private void Start() {
         AssignAbilityButtons();
+        if (allUnlocked) {
+            for (int i = 0; i < abilities.Length; i++) {
+                abilities[i].isActive = true;
+            }
+        }
     }
 
     private void Update() {
