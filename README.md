@@ -26,11 +26,11 @@ P: Pause game
 
 Made by
 
-https://duendue.itch.io/
+https://duendue.itch.io/ | https://github.com/duendue
 
-https://github.com/emillh
+https://troldeansigt.itch.io/ | https://github.com/emillh
 
-https://ladane.itch.io/
+https://ladane.itch.io/ | https://github.com/LaDane
 
 ![alt text](https://img.itch.zone/aW1nLzk4NTIzMDQucG5n/original/NvEqTt.png)
 
