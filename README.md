@@ -27,7 +27,9 @@ P: Pause game
 Made by
 
 https://duendue.itch.io/
+
 https://github.com/emillh
+
 https://ladane.itch.io/
 
 ![alt text](https://img.itch.zone/aW1nLzk4NTIzMDQucG5n/original/NvEqTt.png)
