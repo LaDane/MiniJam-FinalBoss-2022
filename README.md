@@ -15,8 +15,11 @@ Will the raiders be successful in the boss battle, or will the Lava Golem prevai
 ### Controls
 
 Left mouse: Basic attack
+
 Numbers 1 - 3: Special abilities
+
 W A S D: Move character
+
 P: Pause game
 
 ### Credits
