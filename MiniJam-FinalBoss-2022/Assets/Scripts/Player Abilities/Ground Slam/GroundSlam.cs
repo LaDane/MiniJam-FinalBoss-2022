@@ -38,7 +38,7 @@ public class GroundSlam : MonoBehaviour {
 
     private void Update() {
         if (impactColliderRB != null) {
-            if (impactColliderRB.transform.localPosition.y < 2f) {
+            if (impactColliderRB.transform.localPosition.y < 2.5f) {
                 impactColliderRB.AddForce(0, ability.thrust * 1000 * Time.deltaTime, 0);
             }
             else {
