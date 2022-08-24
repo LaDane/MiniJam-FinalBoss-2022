@@ -9,7 +9,7 @@ public class AIUnit : MonoBehaviour {
     public ClassType classType;
     public Animator animator;
 
-    [HideInInspector] public NavMeshAgent agent;
+    public NavMeshAgent agent;
     [HideInInspector] public float maxRange;
     [HideInInspector] public float idealRange;
     [HideInInspector] public bool isAlive = true;
@@ -26,18 +26,50 @@ public class AIUnit : MonoBehaviour {
     private Collider instantiatedFlamesCollider;
     private bool ignitedFlames = false;
     private bool dissapearing = false;
+    private bool stoppingUnit = false;
+    private ReturnToPool returnToPool;
+
 
     private void Start() {
-        agent = GetComponent<NavMeshAgent>();
-        AIManager.Instance.units.Add(this);
-
         childTransform = transform.GetChild(0);
 
         Vector2 ranges = ClassTypeManager.Instance.GetClassTypeRanges(classType);
         maxRange = ranges.x;
         idealRange = ranges.y;
 
+        if (GetComponent<ReturnToPool>() != null) {
+            returnToPool = GetComponent<ReturnToPool>();
+        }
+        StartAIUnit();
+    }
+
+    public void StartAIUnit() {
+        isAlive = true;
+        stoppingUnit = false;
+        agent.enabled = true;
+        
+        ragdollTimer = 0;
+        ragdollOnOff.RagdollModeOff();
+
+        ignitedFlames = false;
+        dissapearing = false;
+
+        AIManager.Instance.units.Add(this);
         StartCoroutine(CheckIfMoving());
+    }
+
+    public IEnumerator StopAIUnit() {
+        float stopTime = 0f;
+        while (stopTime < 2f) {
+            yield return null;
+            stopTime += Time.deltaTime;
+        }
+        ragdollHips.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+        
+        AIManager.Instance.units.Remove(this);
+        StopCoroutine(CheckIfMoving());
+        
+        returnToPool.Release();             // release gameobject to object pool
     }
 
     private void Update() {
@@ -63,6 +95,7 @@ public class AIUnit : MonoBehaviour {
         else {
             if (agent.enabled) {
                 agent.enabled = false;
+                AIManager.Instance.killCount++;
             }
             ragdollTimer += Time.deltaTime;
             if (ragdollTimer > AIManager.Instance.igniteTime && !ignitedFlames) {
@@ -72,13 +105,21 @@ public class AIUnit : MonoBehaviour {
             }
             if (ragdollTimer > AIManager.Instance.igniteTime + AIManager.Instance.flameDuration && !dissapearing) {
                 dissapearing = true;
-                StartCoroutine(ragdollOnOff.DissapearThroughGround());
+                ragdollOnOff.DissapearThroughGround();
                 Destroy(instantiatedFlames, 2f);
+                
+                if (!stoppingUnit) {
+                    stoppingUnit = true;
+                    StartCoroutine(StopAIUnit());
+                }
             }
             if (instantiatedFlames != null && instantiatedFlamesCollider.enabled) {
                 instantiatedFlames.transform.position = ragdollHips.position;
             }
         }
+        //if (ragdollHips.position.y < AIManager.Instance.target.position.y - 5f) {
+        //    StopAIUnit();
+        //}
     }
 
     private IEnumerator CheckIfMoving() {

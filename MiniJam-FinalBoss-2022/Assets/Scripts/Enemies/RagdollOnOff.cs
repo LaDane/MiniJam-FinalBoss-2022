@@ -13,7 +13,7 @@ public class RagdollOnOff : MonoBehaviour {
     private Collider[] ragdollColliders;
     private Rigidbody[] ragdollRigidbodies;
 
-    private void Start() {
+    private void Awake() {
         GetRagdollParts();
         RagdollModeOff();
     }
@@ -22,7 +22,6 @@ public class RagdollOnOff : MonoBehaviour {
         if (collision.gameObject.tag.Equals("RagdollActivator")) {
             aIUnit.isAlive = false;
             RagdollModeOn();
-            //StartCoroutine(DissapearThroughGround());
         }
     }
 
@@ -31,7 +30,7 @@ public class RagdollOnOff : MonoBehaviour {
         ragdollRigidbodies = armature.GetComponentsInChildren<Rigidbody>();
     }
 
-    private void RagdollModeOn() {
+    public void RagdollModeOn() {
         animator.enabled = false;
 
         foreach (Collider c in ragdollColliders) {
@@ -45,7 +44,7 @@ public class RagdollOnOff : MonoBehaviour {
         mainRigidbody.isKinematic = true;
     }
 
-    private void RagdollModeOff() {
+    public void RagdollModeOff() {
         foreach (Collider c in ragdollColliders) {
             c.enabled = false;
         }
@@ -58,7 +57,7 @@ public class RagdollOnOff : MonoBehaviour {
         mainRigidbody.isKinematic = false;
     }
 
-    public IEnumerator DissapearThroughGround() {
+    public void DissapearThroughGround() {
         foreach (Collider c in ragdollColliders) {
             c.enabled = false;
         }
@@ -67,10 +66,5 @@ public class RagdollOnOff : MonoBehaviour {
         }
         mainRigidbody.isKinematic = false;
         mainRigidbody.useGravity = true;
-
-        yield return new WaitForSeconds(1f);
-        if (transform.position.y < 10f) {
-            Destroy(gameObject);
-        }
     }
 }

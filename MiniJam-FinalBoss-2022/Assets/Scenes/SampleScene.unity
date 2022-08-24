@@ -559,7 +559,7 @@ Transform:
   m_GameObject: {fileID: 212340663}
   m_LocalRotation: {x: -0.17451707, y: 0.497238, z: 0.8436337, w: 0.1028606}
   m_LocalPosition: {x: 38.9, y: 44.9, z: -66.4}
-  m_LocalScale: {x: 9.16, y: 1, z: 5.11}
+  m_LocalScale: {x: 11.6, y: 1, z: 5.11}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1167728680}
@@ -1203,6 +1203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 312448625}
+  - component: {fileID: 312448626}
   m_Layer: 0
   m_Name: Object Pool Manager
   m_TagString: Untagged
@@ -1225,6 +1226,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &312448626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312448624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da0aefc0c274424cba548e9e3aeee3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolTypes:
+  - name: Tank
+    pool: {fileID: 11400000, guid: 209795d6aec9982409592e9758d5b87e, type: 2}
+  - name: Rogue
+    pool: {fileID: 11400000, guid: b28dd9fea59a1c542a823dfb70c219d4, type: 2}
+  - name: Warlock
+    pool: {fileID: 11400000, guid: a103b5b13a3b500468c1de42829b6539, type: 2}
+  - name: Mage
+    pool: {fileID: 11400000, guid: 2e43f2b806bcd584d9fb3224de3e0f74, type: 2}
+  - name: Healer
+    pool: {fileID: 11400000, guid: 3682c57f19b625e49a9d2f114cd13819, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,7 +2082,7 @@ GameObject:
   - component: {fileID: 422047185}
   - component: {fileID: 422047184}
   m_Layer: 7
-  m_Name: Plane
+  m_Name: Lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -2304,6 +2328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorPillar (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
         type: 3}
@@ -2963,7 +2992,7 @@ Transform:
   m_GameObject: {fileID: 667960696}
   m_LocalRotation: {x: 0.23187584, y: 0.48902756, z: 0.82970333, w: -0.13666755}
   m_LocalPosition: {x: -43.4, y: 44.9, z: -65.3}
-  m_LocalScale: {x: 9.16, y: 1, z: 5.11}
+  m_LocalScale: {x: 13.26, y: 1, z: 5.11}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1167728680}
@@ -3544,21 +3573,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.92
-      objectReference: {fileID: 0}
     - target: {fileID: 3912346440756808418, guid: 06c16932cbf12fe47baa253c813391c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -3572,7 +3586,7 @@ PrefabInstance:
     - target: {fileID: 3912346440756808418, guid: 06c16932cbf12fe47baa253c813391c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.44
+      value: 4.97
       objectReference: {fileID: 0}
     - target: {fileID: 3912346440756808418, guid: 06c16932cbf12fe47baa253c813391c1,
         type: 3}
@@ -3634,16 +3648,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.51
-      objectReference: {fileID: 0}
     - target: {fileID: 3912346440756808418, guid: 06c16932cbf12fe47baa253c813391c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -3703,11 +3707,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cave Entrance (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440756808421, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06c16932cbf12fe47baa253c813391c1, type: 3}
@@ -4647,6 +4646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
         type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4695,7 +4699,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  allUnlocked: 0
+  allUnlocked: 1
   abilities:
   - abilityName: Normal Attack
     animationName: NormalAttack
@@ -4740,7 +4744,7 @@ MonoBehaviour:
     spawnDelay: 1.17
     destroyDelay: 5
     thrust: 1000
-    size: 10
+    size: 11
     activationBtn: 0
   - abilityName: Hammer Quake
     animationName: HammerQuake
@@ -4751,7 +4755,7 @@ MonoBehaviour:
       type: 3}
     lifeSpan: 0.7
     slowDownRate: 0.1
-    speed: 6
+    speed: 5
     spawnDelay: 1
     destroyDelay: 5
     thrust: 2000
@@ -5567,16 +5571,6 @@ MonoBehaviour:
   - {fileID: 856960600}
   - {fileID: 1453990009}
   - {fileID: 855213573}
-  tankPrefabs:
-  - {fileID: 8093188460541208475, guid: 140a8a7d7bf79784cbd90c6647658470, type: 3}
-  healerPrefabs:
-  - {fileID: 8093188460541208475, guid: 316fe3587ec85ff4c9333ce4a7194366, type: 3}
-  magePrefabs:
-  - {fileID: 8093188460541208475, guid: aa14bd668ecb2a84bacd2a3c7126cfe7, type: 3}
-  warlockPrefabs:
-  - {fileID: 8093188460541208475, guid: eae232bdf32d18d4ca2237cef1512e1e, type: 3}
-  roguePrefabs:
-  - {fileID: 8093188460541208475, guid: 7a9684241e10f9f4abc65de6ce0d47f5, type: 3}
 --- !u!4 &1304492296
 Transform:
   m_ObjectHideFlags: 0
@@ -6009,26 +6003,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440683671022, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3912346440756808418, guid: 06c16932cbf12fe47baa253c813391c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -6203,7 +6177,6 @@ Transform:
   m_Children:
   - {fileID: 996370793}
   - {fileID: 422047183}
-  - {fileID: 1827879112}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6293,6 +6266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorPillar (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
         type: 3}
@@ -7214,6 +7192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
         type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7225,103 +7208,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1816197008}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1827879111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1827879112}
-  - component: {fileID: 1827879115}
-  - component: {fileID: 1827879114}
-  - component: {fileID: 1827879113}
-  m_Layer: 7
-  m_Name: Lava
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
---- !u!4 &1827879112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827879111}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9, y: 6.14, z: 0}
-  m_LocalScale: {x: 201.91, y: 1, z: 211}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1547553236}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1827879113
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827879111}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1827879114
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827879111}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 4fb6f7facf21de54e9b41660d0c845f2, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1827879115
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827879111}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1870719387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7408,6 +7294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorPillar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
         type: 3}
@@ -8151,6 +8042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorPillar (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0c94be2ff6644a4689ca55b4b16543c,
         type: 3}
@@ -10001,16 +9897,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440414008229, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10.27
-      objectReference: {fileID: 0}
     - target: {fileID: 3912346440756808418, guid: 06c16932cbf12fe47baa253c813391c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -10070,11 +9956,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cave Entrance (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912346440756808421, guid: 06c16932cbf12fe47baa253c813391c1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06c16932cbf12fe47baa253c813391c1, type: 3}

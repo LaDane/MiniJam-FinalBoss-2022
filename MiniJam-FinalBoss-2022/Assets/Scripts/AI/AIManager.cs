@@ -52,7 +52,6 @@ public class AIManager : MonoBehaviour {
                 //yield return null;
                 if (!units[i].isAlive) {
                     //Count kills based on if a unit is no longer alive.
-                    killCount++;
 
                     units.Remove(units[i]);
                     continue;

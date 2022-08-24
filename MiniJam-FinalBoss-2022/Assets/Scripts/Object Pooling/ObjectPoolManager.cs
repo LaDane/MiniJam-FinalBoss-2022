@@ -5,10 +5,11 @@ using UnityEngine.Pool;
 
 public class ObjectPoolManager : MonoBehaviour {
 
-    [SerializeField] private GameObject objectPrefab;
-    [SerializeField] private int startPoolSize;
+    //[SerializeField] private OPool[] poolTypes;
+    
+    public ObjectPool<GameObject>[] pools;
 
-    [HideInInspector] public IObjectPool<GameObject> pool;
+    [SerializeField] private ObjectPoolDict[] poolTypes;
 
     private static ObjectPoolManager _instance;
     public static ObjectPoolManager Instance {
@@ -21,6 +22,23 @@ public class ObjectPoolManager : MonoBehaviour {
     }
 
     private void Awake() {
+        pools = new ObjectPool<GameObject>[poolTypes.Length];
+        for (int i = 0; i < pools.Length; i++) {
+            pools[i] = new ObjectPool<GameObject>(
+                poolTypes[i].pool.CreatePoolObject,
+                poolTypes[i].pool.OnTakeFromPool,
+                poolTypes[i].pool.OnReturnToPool,
+                poolTypes[i].pool.OnDestroyPoolObject,
+                true,
+                poolTypes[i].pool.poolStartSize
+                );
+            for (int j = 0; j < poolTypes[i].pool.poolStartSize; j++) {
+                GameObject go = poolTypes[i].pool.CreatePoolObject();
+                go.GetComponent<ReturnToPool>().pool = pools[i];
+                pools[i].Release(go);
+            }
+        }
+        
         if (Instance == null) {
             Instance = this;
             return;
@@ -28,11 +46,14 @@ public class ObjectPoolManager : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    //private void Start() {
-    //    pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true);
-    //}
+    public ObjectPool<GameObject> GetObjectPoolByName(string poolName) {
+        for (int i = 0; i < poolTypes.Length; i++) {
+            if (poolTypes[i].name.Equals(poolName)) {
+                return pools[i];
+            }
+        }
 
-    private void CreatePooledItem() {
-
+        Debug.LogError("No object pool with name '" + poolName + "' exists!");
+        return null;
     }
 }

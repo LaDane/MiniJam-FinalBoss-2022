@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classType: 0
   animator: {fileID: 4109905273864858306}
-  agent: {fileID: 0}
+  agent: {fileID: 8420645952221990930}
   maxRange: 0
   idealRange: 0
   isAlive: 1

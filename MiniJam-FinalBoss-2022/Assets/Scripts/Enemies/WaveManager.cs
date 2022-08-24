@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class WaveManager : MonoBehaviour {
 
@@ -28,16 +29,16 @@ public class WaveManager : MonoBehaviour {
     [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
     private int lastSpawnPosIndex = 0;
 
-    [Header("Prefabs")]
-    [SerializeField] private List<GameObject> tankPrefabs = new List<GameObject>();
-    [SerializeField] private List<GameObject> healerPrefabs = new List<GameObject>();
-    [SerializeField] private List<GameObject> magePrefabs = new List<GameObject>();
-    [SerializeField] private List<GameObject> warlockPrefabs = new List<GameObject>();
-    [SerializeField] private List<GameObject> roguePrefabs = new List<GameObject>();
-
     //private int groupSize = 5;
     private float timeLeft;
     private float waitBetweenInstantiate = 0.2f;
+
+    // Object pools
+    private ObjectPool<GameObject> poolTank;
+    private ObjectPool<GameObject> poolRogue;
+    private ObjectPool<GameObject> poolWarlock;
+    private ObjectPool<GameObject> poolMage;
+    private ObjectPool<GameObject> poolHealer;
 
     private static WaveManager _instance;
     public static WaveManager Instance {
@@ -58,20 +59,13 @@ public class WaveManager : MonoBehaviour {
     }
 
     private void Start() {
-        if (spawnPositions.Count == 0)
-            Debug.LogWarning("Wave Manager is missing spawn positions!");
-        if (tankPrefabs.Count == 0)
-            Debug.LogWarning("Wave Manager is missing tank prefabs!");
-        if (healerPrefabs.Count == 0)
-            Debug.LogWarning("Wave Manager is missing healer prefabs!");
-        if (magePrefabs.Count == 0)
-            Debug.LogWarning("Wave Manager is missing mage prefabs!");
-        if (warlockPrefabs.Count == 0)
-            Debug.LogWarning("Wave Manager is missing warlock prefabs!");
-        if (roguePrefabs.Count == 0)
-            Debug.LogWarning("Wave Manager is missing rogue prefabs!");
-
         timeLeft = timeBeforeFirstWave;
+
+        poolTank = ObjectPoolManager.Instance.GetObjectPoolByName("Tank");
+        poolRogue = ObjectPoolManager.Instance.GetObjectPoolByName("Rogue");
+        poolWarlock = ObjectPoolManager.Instance.GetObjectPoolByName("Warlock");
+        poolMage = ObjectPoolManager.Instance.GetObjectPoolByName("Mage");
+        poolHealer = ObjectPoolManager.Instance.GetObjectPoolByName("Healer");
     }
 
     private void Update() {
@@ -105,33 +99,40 @@ public class WaveManager : MonoBehaviour {
 
     private int GetRandomSpawnPos() {
         int rand = Random.Range(0, spawnPositions.Count);
-        while (rand == lastSpawnPosIndex)
+        while (rand == lastSpawnPosIndex) {
             rand = Random.Range(0, spawnPositions.Count);
+        }
         lastSpawnPosIndex = rand;
         return rand;
     }
 
-    private IEnumerator InstantiateGroup(int randomInt) {
+    private IEnumerator InstantiateGroup(int spawnPosIndex) {
         for (int i = 0; i < amountOfGroups; i++) {
+            PlaceEnemyUnit(poolTank, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);
-            Instantiate(tankPrefabs[Random.Range(0, tankPrefabs.Count)], GetSpawnPos(randomInt), Quaternion.identity);
-            
+
+            PlaceEnemyUnit(poolRogue, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);
-            Instantiate(healerPrefabs[Random.Range(0, healerPrefabs.Count)], GetSpawnPos(randomInt), Quaternion.identity);
-            
+
+            PlaceEnemyUnit(poolWarlock, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);
-            Instantiate(magePrefabs[Random.Range(0, magePrefabs.Count)], GetSpawnPos(randomInt), Quaternion.identity);
-            
+
+            PlaceEnemyUnit(poolMage, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);
-            Instantiate(warlockPrefabs[Random.Range(0, warlockPrefabs.Count)], GetSpawnPos(randomInt), Quaternion.identity);
-            
+
+            PlaceEnemyUnit(poolHealer, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);
-            Instantiate(roguePrefabs[Random.Range(0, roguePrefabs.Count)], GetSpawnPos(randomInt), Quaternion.identity);
         }
     }
 
-    private Vector3 GetSpawnPos(int randomInt) {
-        Vector3 spawnPos = Random.insideUnitCircle * 4.5f;
-        return spawnPositions[randomInt].position + spawnPos;
+    private void PlaceEnemyUnit(ObjectPool<GameObject> pool, int spawnPosIndex) {
+        GameObject go = pool.Get();
+        go.transform.position = GetSpawnPos(spawnPosIndex);
+        go.GetComponent<AIUnit>().StartAIUnit();
+    }
+
+    private Vector3 GetSpawnPos(int spawnPosIndex) {
+        Vector3 spawnPos = Random.insideUnitCircle * 4f;
+        return spawnPositions[spawnPosIndex].position + spawnPos;
     }
 }

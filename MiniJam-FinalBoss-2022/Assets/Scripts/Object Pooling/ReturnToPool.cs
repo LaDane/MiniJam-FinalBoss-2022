@@ -7,7 +7,7 @@ public class ReturnToPool : MonoBehaviour {
 
     public IObjectPool<GameObject> pool;
 
-    private void Release() {
+    public void Release() {
         pool.Release(gameObject);
     }
 }
