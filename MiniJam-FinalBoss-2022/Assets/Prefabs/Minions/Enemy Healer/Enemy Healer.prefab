@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8420645952221990930}
   - component: {fileID: 3839927984011315315}
   - component: {fileID: 29013127314598853}
+  - component: {fileID: 8997719316163610176}
   m_Layer: 6
   m_Name: Enemy Healer
   m_TagString: Untagged
@@ -158,6 +159,20 @@ MonoBehaviour:
   armature: {fileID: 704358996682304108}
   animator: {fileID: 4109905273864858306}
   aIUnit: {fileID: 3839927984011315315}
+--- !u!114 &8997719316163610176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093188460541208475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9c64e4f2194d94086b84bc0d6715e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolScriptableObject: {fileID: 11400000, guid: 3682c57f19b625e49a9d2f114cd13819,
+    type: 2}
 --- !u!1001 &1748293002606484494
 PrefabInstance:
   m_ObjectHideFlags: 0

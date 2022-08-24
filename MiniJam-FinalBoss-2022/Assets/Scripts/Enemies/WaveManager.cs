@@ -61,11 +61,11 @@ public class WaveManager : MonoBehaviour {
     private void Start() {
         timeLeft = timeBeforeFirstWave;
 
-        poolTank = ObjectPoolManager.Instance.GetObjectPoolByName("Tank");
-        poolRogue = ObjectPoolManager.Instance.GetObjectPoolByName("Rogue");
-        poolWarlock = ObjectPoolManager.Instance.GetObjectPoolByName("Warlock");
-        poolMage = ObjectPoolManager.Instance.GetObjectPoolByName("Mage");
-        poolHealer = ObjectPoolManager.Instance.GetObjectPoolByName("Healer");
+        poolTank = ObjectPoolManager.Instance.GetObjectPoolByName("PoolTank");
+        poolRogue = ObjectPoolManager.Instance.GetObjectPoolByName("PoolRogue");
+        poolWarlock = ObjectPoolManager.Instance.GetObjectPoolByName("PoolWarlock");
+        poolMage = ObjectPoolManager.Instance.GetObjectPoolByName("PoolMage");
+        poolHealer = ObjectPoolManager.Instance.GetObjectPoolByName("PoolHealer");
     }
 
     private void Update() {
@@ -91,7 +91,7 @@ public class WaveManager : MonoBehaviour {
 
             timeLeft = timeBetweenWaves;
 
-            StartCoroutine(InstantiateGroup(GetRandomSpawnPos()));
+            StartCoroutine(SpawnGroup(GetRandomSpawnPos()));
 
             //Debug.Log("Wave = " + waveCounter + " | Time Between Waves = " + timeBetweenWaves + " | Amount of Groups = " + amountOfGroups);
         }
@@ -106,7 +106,7 @@ public class WaveManager : MonoBehaviour {
         return rand;
     }
 
-    private IEnumerator InstantiateGroup(int spawnPosIndex) {
+    private IEnumerator SpawnGroup(int spawnPosIndex) {
         for (int i = 0; i < amountOfGroups; i++) {
             PlaceEnemyUnit(poolTank, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);

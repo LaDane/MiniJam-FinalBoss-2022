@@ -9,7 +9,8 @@ public class ObjectPoolManager : MonoBehaviour {
     
     public ObjectPool<GameObject>[] pools;
 
-    [SerializeField] private ObjectPoolDict[] poolTypes;
+    [SerializeField] private OPool[] poolTypes;
+    //[SerializeField] private ObjectPoolDict[] poolTypes;
 
     private static ObjectPoolManager _instance;
     public static ObjectPoolManager Instance {
@@ -25,16 +26,15 @@ public class ObjectPoolManager : MonoBehaviour {
         pools = new ObjectPool<GameObject>[poolTypes.Length];
         for (int i = 0; i < pools.Length; i++) {
             pools[i] = new ObjectPool<GameObject>(
-                poolTypes[i].pool.CreatePoolObject,
-                poolTypes[i].pool.OnTakeFromPool,
-                poolTypes[i].pool.OnReturnToPool,
-                poolTypes[i].pool.OnDestroyPoolObject,
+                poolTypes[i].CreatePoolObject,
+                poolTypes[i].OnTakeFromPool,
+                poolTypes[i].OnReturnToPool,
+                poolTypes[i].OnDestroyPoolObject,
                 true,
-                poolTypes[i].pool.poolStartSize
+                poolTypes[i].poolStartSize
                 );
-            for (int j = 0; j < poolTypes[i].pool.poolStartSize; j++) {
-                GameObject go = poolTypes[i].pool.CreatePoolObject();
-                go.GetComponent<ReturnToPool>().pool = pools[i];
+            for (int j = 0; j < poolTypes[i].poolStartSize; j++) {
+                GameObject go = poolTypes[i].CreatePoolObject();
                 pools[i].Release(go);
             }
         }

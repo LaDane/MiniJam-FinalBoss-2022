@@ -11,7 +11,6 @@ public class OPool : ScriptableObject {
 
     public virtual GameObject CreatePoolObject() {
         GameObject go = Instantiate(poolObject);
-        go.AddComponent<ReturnToPool>();
         return go;
     }
 

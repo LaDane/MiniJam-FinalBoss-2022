@@ -1239,16 +1239,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolTypes:
-  - name: Tank
-    pool: {fileID: 11400000, guid: 209795d6aec9982409592e9758d5b87e, type: 2}
-  - name: Rogue
-    pool: {fileID: 11400000, guid: b28dd9fea59a1c542a823dfb70c219d4, type: 2}
-  - name: Warlock
-    pool: {fileID: 11400000, guid: a103b5b13a3b500468c1de42829b6539, type: 2}
-  - name: Mage
-    pool: {fileID: 11400000, guid: 2e43f2b806bcd584d9fb3224de3e0f74, type: 2}
-  - name: Healer
-    pool: {fileID: 11400000, guid: 3682c57f19b625e49a9d2f114cd13819, type: 2}
+  - {fileID: 11400000, guid: 209795d6aec9982409592e9758d5b87e, type: 2}
+  - {fileID: 11400000, guid: b28dd9fea59a1c542a823dfb70c219d4, type: 2}
+  - {fileID: 11400000, guid: a103b5b13a3b500468c1de42829b6539, type: 2}
+  - {fileID: 11400000, guid: 2e43f2b806bcd584d9fb3224de3e0f74, type: 2}
+  - {fileID: 11400000, guid: 3682c57f19b625e49a9d2f114cd13819, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,7 +4694,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  allUnlocked: 1
+  allUnlocked: 0
   abilities:
   - abilityName: Normal Attack
     animationName: NormalAttack
