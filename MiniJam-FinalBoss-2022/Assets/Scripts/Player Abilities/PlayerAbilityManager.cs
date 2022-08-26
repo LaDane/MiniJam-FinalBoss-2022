@@ -98,7 +98,10 @@ public class PlayerAbilityManager : MonoBehaviour {
     private void AssignAbilityButtons() {
         for (int i = 0; i < abilities.Length; i++) {
             switch (abilities[i].abilityName) {
-                case "Normal Attack": abilities[i].activationBtn = PlayerControls.Instance.controls.normalAttack; break;
+                case "Normal Attack": 
+                    abilities[i].activationBtn = PlayerControls.Instance.controls.normalAttack; 
+                    // Add sound code here
+                    break;
                 case "Ground Slam": abilities[i].activationBtn = PlayerControls.Instance.controls.groundSlam; break;
                 case "Hammer Quake": abilities[i].activationBtn = PlayerControls.Instance.controls.hammerQuake; break;
                 case "Fireball": abilities[i].activationBtn = PlayerControls.Instance.controls.fireball; break;
