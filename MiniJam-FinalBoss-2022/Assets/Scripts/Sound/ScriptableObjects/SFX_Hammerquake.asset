@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd476fd569fcc08449904c836834749a, type: 3}
-  m_Name: SFX_Fireball
+  m_Name: SFX_Hammerquake
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 6df121fa9f0f16a4da4939d091fc3d5f, type: 3}
+  - {fileID: 8300000, guid: 742475b713e195b438fc2686be1b743b, type: 3}
   clipPlayOrder: 0
   volume: 0.202
-  pitch: 1.64
+  pitch: 1
   is3dSound: 1
   randomVolume: 0
   volumeRange: {x: 0, y: 1}

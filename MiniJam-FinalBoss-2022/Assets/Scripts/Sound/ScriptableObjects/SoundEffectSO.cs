@@ -44,8 +44,21 @@ public class SoundEffectSO : ScriptableObject {
             Debug.LogWarning($"An audio source is required to to get a sound for {this.name}");
             return null;
         }
-        audioSource.volume = volume;
-        audioSource.pitch = pitch;
+        
+        if (randomVolume) {
+            audioSource.volume = Random.Range(volumeRange.x, volumeRange.y);
+        }
+        else {
+            audioSource.volume = volume;
+        }
+        
+        if (randomPitch) {
+            audioSource.pitch = Random.Range(pitchRange.x, pitchRange.y);
+        }
+        else {
+            audioSource.pitch = pitch;
+        }
+
         audioSource.spatialBlend = is3dSound ? 1 : 0;
         return GetClipBasedOnOrder(clipIndex, false);
     }
