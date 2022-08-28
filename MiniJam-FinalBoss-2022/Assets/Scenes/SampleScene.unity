@@ -1576,14 +1576,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
-  playerMaxHP: 2000
-  playerHP: 2000
+  playerMaxHP: 100
+  playerHP: 100
   tankDmg: 6
   healerDmg: 0
-  mageDmg: 1
+  mageDmg: 2
   warlockDmg: 2
   rogueDmg: 8
-  regenAmount: 5
+  regenAmount: 3
 --- !u!4 &343514592
 Transform:
   m_ObjectHideFlags: 0
@@ -6145,7 +6145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveCounter: 0
   kills: 0
-  killTarget1: 10
+  killTarget1: 20
   killTarget2: 80
   killTarget3: 200
   killTarget4: 400

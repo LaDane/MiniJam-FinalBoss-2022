@@ -91,6 +91,8 @@ public class UIManager : MonoBehaviour {
                 PlayerAbilityManager.Instance.abilities[0].isActive = true;
                 killTarget = killTarget1;
                 if(kills >= killTarget) {
+                    PlayerHealthManager.Instance.playerMaxHP = 250;
+                    PlayerHealthManager.Instance.playerHP = PlayerHealthManager.Instance.playerMaxHP;
                     ability1.SetActive(true);
                     killPhaseStart = kills;
                     killBar.fillAmount = 0f;
@@ -101,6 +103,8 @@ public class UIManager : MonoBehaviour {
             case 1:
                 killTarget = killTarget2;
                 if (kills >= killTarget) {
+                    PlayerHealthManager.Instance.playerMaxHP = 500;
+                    PlayerHealthManager.Instance.playerHP = PlayerHealthManager.Instance.playerMaxHP;
                     ability2.SetActive(true);
                     killPhaseStart = kills;
                     killBar.fillAmount = 0f;
@@ -111,6 +115,8 @@ public class UIManager : MonoBehaviour {
             case 2:
                 killTarget = killTarget3;
                 if (kills >= killTarget) {
+                    PlayerHealthManager.Instance.playerMaxHP = 1000;
+                    PlayerHealthManager.Instance.playerHP = PlayerHealthManager.Instance.playerMaxHP;
                     ability3.SetActive(true);
                     killPhaseStart = kills;
                     PlayerAbilityManager.Instance.abilities[3].isActive = true;
