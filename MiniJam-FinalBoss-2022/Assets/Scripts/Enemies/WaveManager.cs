@@ -118,8 +118,8 @@ public class WaveManager : MonoBehaviour {
             //PlaceEnemyUnit(poolWarlock, spawnPosIndex);
             //yield return new WaitForSeconds(waitBetweenInstantiate);
 
-            //PlaceEnemyUnit(poolMage, spawnPosIndex);
-            //yield return new WaitForSeconds(waitBetweenInstantiate);
+            PlaceEnemyUnit(poolMage, spawnPosIndex);
+            yield return new WaitForSeconds(waitBetweenInstantiate);
 
             PlaceEnemyUnit(poolHealer, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);
