@@ -5373,7 +5373,7 @@ MonoBehaviour:
     spawnDelay: 1.17
     destroyDelay: 5
     thrust: 1000
-    size: 11
+    size: 13
     activationBtn: 0
   - abilityName: Hammer Quake
     animationName: HammerQuake
@@ -7385,7 +7385,7 @@ MonoBehaviour:
   controller: {fileID: 1730902643}
   cam: {fileID: 330585545}
   animator: {fileID: 61250610}
-  moveSpeed: 4.5
+  moveSpeed: 6.5
   rotateSpeed: 40
   gravity: 10
 --- !u!143 &1730902643
