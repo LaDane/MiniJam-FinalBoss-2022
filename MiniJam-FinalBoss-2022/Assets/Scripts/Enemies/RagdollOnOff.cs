@@ -11,8 +11,10 @@ public class RagdollOnOff : MonoBehaviour {
     [SerializeField] private AIUnit aIUnit;
 
     [Header("Sound")]
-    public AudioSource audioSource;
+    public AudioSource impactAudioSource;
+    public AudioSource screamAudioSource;
     [SerializeField] private SoundEffectSO impactSFXSO;
+    [SerializeField] private SoundEffectSO screamSFXSO;
 
     private Collider[] ragdollColliders;
     private Rigidbody[] ragdollRigidbodies;
@@ -27,22 +29,39 @@ public class RagdollOnOff : MonoBehaviour {
             aIUnit.isAlive = false;
             RagdollModeOn();
 
-            if (audioSource != null && impactSFXSO != null) {
+            if (impactAudioSource != null && impactSFXSO != null && screamAudioSource != null && screamSFXSO != null) {
                 PlayImpactSound();
+                if (Random.Range(0, 100) < 15) {
+                    Debug.Log(Random.Range(0, 100));
+                    PlayScreamSound();   
+                }
             }
         }
     }
 
     private void PlayImpactSound() {
-        audioSource.Stop();
-        audioSource.clip = impactSFXSO.GetSound(audioSource);
-        audioSource.Play();
+        impactAudioSource.Stop();
+        impactAudioSource.clip = impactSFXSO.GetSound(impactAudioSource);
+        impactAudioSource.Play();
     }
+
+    private void PlayScreamSound() {
+        screamAudioSource.Stop();
+        screamAudioSource.clip = screamSFXSO.GetSound(screamAudioSource);
+        screamAudioSource.Play();
+    }
+
+    public void StopAllSounds() {
+        screamAudioSource.Stop();
+        impactAudioSource.Stop();
+    }
+
 
     private void GetRagdollParts() {
         ragdollColliders = armature.GetComponentsInChildren<Collider>();
         ragdollRigidbodies = armature.GetComponentsInChildren<Rigidbody>();
     }
+
 
     public void RagdollModeOn() {
         animator.enabled = false;

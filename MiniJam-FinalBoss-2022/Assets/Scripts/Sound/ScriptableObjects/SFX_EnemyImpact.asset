@@ -15,10 +15,10 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 5e1d7f945b9987245bd693ec0ed0e07c, type: 3}
   clipPlayOrder: 0
-  volume: 0.8
+  volume: 0.7
   pitch: 1
   is3dSound: 1
   randomVolume: 1
-  volumeRange: {x: 0.9, y: 1.2}
+  volumeRange: {x: 0.9, y: 1}
   randomPitch: 1
-  pitchRange: {x: 0.5, y: 1.5}
+  pitchRange: {x: 0.7, y: 1.2}

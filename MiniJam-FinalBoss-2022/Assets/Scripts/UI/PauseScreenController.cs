@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PauseScreenController : MonoBehaviour
@@ -8,6 +9,10 @@ public class PauseScreenController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private AudioMixer audioMixer;
+
+    private bool isMusicMuted = false;
+    private bool isSoundMuted = false;
 
     void Start()
     {
@@ -15,11 +20,23 @@ public class PauseScreenController : MonoBehaviour
     }
 
     public void OnAudioButtonPress() {
-
+        if (isMusicMuted) {
+            audioMixer.SetFloat("soundVolume", 0f);
+            isSoundMuted = false;
+        } else {
+            audioMixer.SetFloat("soundVolume", -80f);
+            isSoundMuted = true;
+        }
     }
 
     public void OnMusicButtonPress() {
-        musicSource.mute =! musicSource.mute;
+        if (isMusicMuted) {
+            audioMixer.SetFloat("musicVolume", 0f);
+            isMusicMuted = false;
+        } else {
+            audioMixer.SetFloat("musicVolume", -80f);
+            isMusicMuted = true;
+        }
     }
     public void OnRestartBtnPress() {
         Time.timeScale = 1;
