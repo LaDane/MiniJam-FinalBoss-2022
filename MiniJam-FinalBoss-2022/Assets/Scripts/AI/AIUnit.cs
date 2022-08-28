@@ -64,6 +64,7 @@ public class AIUnit : MonoBehaviour {
             yield return null;
             stopTime += Time.deltaTime;
         }
+        ragdollOnOff.audioSource.Stop();
         ragdollHips.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
         
         AIManager.Instance.units.Remove(this);

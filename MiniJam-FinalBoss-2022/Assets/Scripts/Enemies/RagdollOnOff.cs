@@ -11,7 +11,7 @@ public class RagdollOnOff : MonoBehaviour {
     [SerializeField] private AIUnit aIUnit;
 
     [Header("Sound")]
-    [SerializeField] private AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] private SoundEffectSO impactSFXSO;
 
     private Collider[] ragdollColliders;
