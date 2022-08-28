@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlaySoundAbility : MonoBehaviour {
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private SoundEffectSO BasicAttackSEFO;
     [SerializeField] private SoundEffectSO FireballSEFO;
     [SerializeField] private SoundEffectSO GroundslamSEFO;
     [SerializeField] private SoundEffectSO HammerquakeSEFO;
+
+    public void SoundPlayBasicAttack() {
+        audioSource.Stop();
+        audioSource.clip = BasicAttackSEFO.GetSound(audioSource);
+        audioSource.Play();
+    }
 
     public void SoundPlayFireball() {
         audioSource.Stop();

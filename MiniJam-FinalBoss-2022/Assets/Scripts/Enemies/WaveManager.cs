@@ -103,6 +103,7 @@ public class WaveManager : MonoBehaviour {
             rand = Random.Range(0, spawnPositions.Count);
         }
         lastSpawnPosIndex = rand;
+        SpawnAudioHorn(spawnPositions[rand]);
         return rand;
     }
 
@@ -123,6 +124,10 @@ public class WaveManager : MonoBehaviour {
             PlaceEnemyUnit(poolHealer, spawnPosIndex);
             yield return new WaitForSeconds(waitBetweenInstantiate);
         }
+    }
+
+    private void SpawnAudioHorn(Transform hornPosition) {
+        hornPosition.GetComponent<PlaySound>().SoundPlay();
     }
 
     private void PlaceEnemyUnit(ObjectPool<GameObject> pool, int spawnPosIndex) {

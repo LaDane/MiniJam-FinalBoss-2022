@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd476fd569fcc08449904c836834749a, type: 3}
-  m_Name: SFX_Hammerquake
+  m_Name: SFX_BasicAttack
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: c54feb138b54b1f4a832c80df3f11a73, type: 3}
+  - {fileID: 8300000, guid: 540a498926477b14499c3f4f7c38712a, type: 3}
   clipPlayOrder: 0
-  volume: 0.8
+  volume: 0.2
   pitch: 1
   is3dSound: 1
-  randomVolume: 0
-  volumeRange: {x: 0, y: 1}
-  randomPitch: 0
-  pitchRange: {x: 0, y: 3}
+  randomVolume: 1
+  volumeRange: {x: 0.04, y: 0.08}
+  randomPitch: 1
+  pitchRange: {x: 0.95, y: 1.05}
