@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54be010bc611810428ab5b7afd3bf034, type: 3}
   m_Name: PoolMage
   m_EditorClassIdentifier: 
-  poolObject: {fileID: 8093188460541208475, guid: aa14bd668ecb2a84bacd2a3c7126cfe7,
+  poolObject: {fileID: 8093188460541208475, guid: acc4d1ee74c272646b28a5c457132e36,
     type: 3}
   poolStartSize: 100

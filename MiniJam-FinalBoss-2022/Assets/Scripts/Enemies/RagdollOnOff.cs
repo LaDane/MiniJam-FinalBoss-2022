@@ -32,7 +32,7 @@ public class RagdollOnOff : MonoBehaviour {
             if (impactAudioSource != null && impactSFXSO != null && screamAudioSource != null && screamSFXSO != null) {
                 PlayImpactSound();
                 if (Random.Range(0, 100) < 15) {
-                    Debug.Log(Random.Range(0, 100));
+                    //Debug.Log(Random.Range(0, 100));
                     PlayScreamSound();   
                 }
             }

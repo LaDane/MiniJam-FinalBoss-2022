@@ -144,18 +144,12 @@ public class AIUnit : MonoBehaviour {
     public void SwitchStateMoving() {
         isAttacking = false;
         agent.isStopped = false;
-        // new bool names
         animator.SetBool("attackMelee1", false);
         animator.SetBool("attackMelee2", false);
         animator.SetBool("attackCast", false);
         animator.SetBool("attackBow", false);
         animator.SetBool("attackHeal", false);
-        // end new bool names
 
-        //animator.SetBool("attackMelee", false);
-        //animator.SetBool("attackCast", false);
-        //animator.SetBool("attackBow", false);
-        //animator.SetBool("heal", false);
         animator.SetBool("isMoving", true);
     }
 
@@ -170,30 +164,17 @@ public class AIUnit : MonoBehaviour {
             case ClassType.Warlock: animator.SetBool("attackBow", true); break;
             case ClassType.Rogue: animator.SetBool("attackMelee2", true); break;
         }
-        //switch (classType) {
-        //    case ClassType.Tank: animator.SetBool("attackMelee", true); break;
-        //    case ClassType.Healer: animator.SetBool("heal", true); break;
-        //    case ClassType.Mage: animator.SetBool("attackCast", true); break;
-        //    case ClassType.Warlock: animator.SetBool("attackBow", true); break;
-        //    case ClassType.Rogue: animator.SetBool("attackMelee", true); break;
-        //}
     }
 
     public void SwitchStateIdle() {
         isAttacking = false;
         agent.isStopped = true;
-        // new bool names
         animator.SetBool("attackMelee1", false);
         animator.SetBool("attackMelee2", false);
         animator.SetBool("attackCast", false);
         animator.SetBool("attackBow", false);
         animator.SetBool("attackHeal", false);
-        // end new bool names
 
-        //animator.SetBool("attackMelee", false);
-        //animator.SetBool("attackCast", false);
-        //animator.SetBool("attackBow", false);
-        //animator.SetBool("heal", false);
         animator.SetBool("isMoving", false);
     }
 }
