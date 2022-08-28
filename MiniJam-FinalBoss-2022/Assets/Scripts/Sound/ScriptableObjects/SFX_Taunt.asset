@@ -18,10 +18,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3f728e1a40682ee4d8b38329a3ae0283, type: 3}
   - {fileID: 8300000, guid: 33cf299da0c4f0f45861cee803500aa8, type: 3}
   clipPlayOrder: 0
-  volume: 0.5
+  volume: 0.2
   pitch: 1
   is3dSound: 1
-  randomVolume: 0
-  volumeRange: {x: 0, y: 1}
-  randomPitch: 0
-  pitchRange: {x: 0, y: 3}
+  randomVolume: 1
+  volumeRange: {x: 0.15, y: 0.25}
+  randomPitch: 1
+  pitchRange: {x: 0.95, y: 1.05}

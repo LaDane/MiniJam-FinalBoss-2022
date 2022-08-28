@@ -1756,7 +1756,6 @@ MonoBehaviour:
     hammerQuake: 51
     fireball: 49
     grabThrow: 52
-    taunt: 116
     escapeButton: 27
     pButton: 112
 --- !u!4 &345532269
@@ -2797,6 +2796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb460ca18306dd4499e23ec45dcb2a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 489230403}
+  SEFO: {fileID: 11400000, guid: ae853e6ce4cce894b8cba83a31cc5fce, type: 2}
 --- !u!1 &493808091
 GameObject:
   m_ObjectHideFlags: 0
