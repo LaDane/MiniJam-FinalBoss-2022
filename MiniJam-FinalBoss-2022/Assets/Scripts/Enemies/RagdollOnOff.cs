@@ -10,6 +10,10 @@ public class RagdollOnOff : MonoBehaviour {
     [SerializeField] private Animator animator;
     [SerializeField] private AIUnit aIUnit;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private SoundEffectSO impactSFXSO;
+
     private Collider[] ragdollColliders;
     private Rigidbody[] ragdollRigidbodies;
 
@@ -22,7 +26,17 @@ public class RagdollOnOff : MonoBehaviour {
         if (collision.gameObject.tag.Equals("RagdollActivator")) {
             aIUnit.isAlive = false;
             RagdollModeOn();
+
+            if (audioSource != null && impactSFXSO != null) {
+                PlayImpactSound();
+            }
         }
+    }
+
+    private void PlayImpactSound() {
+        audioSource.Stop();
+        audioSource.clip = impactSFXSO.GetSound(audioSource);
+        audioSource.Play();
     }
 
     private void GetRagdollParts() {
