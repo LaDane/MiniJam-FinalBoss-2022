@@ -55,6 +55,10 @@ public class PlayerAbilityManager : MonoBehaviour {
 
                 // Play ability animation on key down
                 if (Input.GetKeyDown(abilities[i].activationBtn)) {
+                    
+                    if(Random.Range(0, 10) < 2) {
+                        TriggerTauntSound();
+                    }
 
                     if (abilities[i].animationName.Equals("Grab|Throw")) {
                         if (!isHoldingEnemy)
@@ -78,6 +82,10 @@ public class PlayerAbilityManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private void TriggerTauntSound() {
+        playerAnimator.GetComponent<PlaySoundTaunt>().SoundPlay();
     }
 
     private IEnumerator InstantiateProjectile(Ability ability, Transform startPoint) {

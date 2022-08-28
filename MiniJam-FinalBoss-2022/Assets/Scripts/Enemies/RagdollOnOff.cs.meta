@@ -3,7 +3,17 @@ guid: 534c0e97f9c4bc64598eca5dff06bb1d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mainCollider: {instanceID: 0}
+  - mainRigidbody: {instanceID: 0}
+  - armature: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - aIUnit: {instanceID: 0}
+  - impactAudioSource: {instanceID: 0}
+  - screamAudioSource: {instanceID: 0}
+  - impactSFXSO: {instanceID: 0}
+  - screamSFXSO: {instanceID: 0}
+  - golem: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

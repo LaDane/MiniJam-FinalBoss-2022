@@ -15,7 +15,7 @@ public class RagdollOnOff : MonoBehaviour {
     public AudioSource screamAudioSource;
     [SerializeField] private SoundEffectSO impactSFXSO;
     [SerializeField] private SoundEffectSO screamSFXSO;
-
+    
     private Collider[] ragdollColliders;
     private Rigidbody[] ragdollRigidbodies;
 

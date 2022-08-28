@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd476fd569fcc08449904c836834749a, type: 3}
+  m_Name: SFX_Taunt
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 336e47a11d8f029498b95dad212a2434, type: 3}
+  - {fileID: 8300000, guid: 4319628bc8781a144952aa390942a84d, type: 3}
+  - {fileID: 8300000, guid: 3f728e1a40682ee4d8b38329a3ae0283, type: 3}
+  - {fileID: 8300000, guid: 33cf299da0c4f0f45861cee803500aa8, type: 3}
+  clipPlayOrder: 0
+  volume: 0.5
+  pitch: 1
+  is3dSound: 1
+  randomVolume: 0
+  volumeRange: {x: 0, y: 1}
+  randomPitch: 0
+  pitchRange: {x: 0, y: 3}

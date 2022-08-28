@@ -117,7 +117,7 @@ public class PlayerControllerWoW : MonoBehaviour {
         if (!Input.GetKey(PlayerControls.Instance.controls.rotateLeft) && !Input.GetKey(PlayerControls.Instance.controls.rotateRight)) {
             rotation = 0;
         }
-
+ 
         // Mouse rotation
         mouseRotation.x = Input.GetAxis("Mouse X") * PlayerControls.Instance.controls.mouseSensitivity;
         mouseRotation.y = Input.GetAxis("Mouse Y") * PlayerControls.Instance.controls.mouseSensitivity;
