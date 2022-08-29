@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd476fd569fcc08449904c836834749a, type: 3}
+  m_Name: SFX_TankAttack
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 49d65f9db6d709742ab9e2f010b16690, type: 3}
+  - {fileID: 8300000, guid: 6390f85ba95014b41bb245f2296d861c, type: 3}
+  clipPlayOrder: 0
+  volume: 1
+  pitch: 1
+  is3dSound: 1
+  randomVolume: 0
+  volumeRange: {x: 0, y: 1}
+  randomPitch: 0
+  pitchRange: {x: 0, y: 3}

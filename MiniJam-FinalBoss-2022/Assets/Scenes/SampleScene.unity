@@ -8559,8 +8559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c345f7ad29b630345af7adaf1afca802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankMax: 8
-  tankIdeal: 3
+  tankMax: 10
+  tankIdeal: 5
   healerMax: 30
   healerIdeal: 20
   mageMax: 40

@@ -162,6 +162,7 @@ public class AIUnit : MonoBehaviour {
     }
 
     public void SwitchStateAttacking() {
+        PlayAttackSound();
         isAttacking = true;
         agent.isStopped = true;
         animator.SetBool("isMoving", false);
@@ -184,5 +185,11 @@ public class AIUnit : MonoBehaviour {
         animator.SetBool("attackHeal", false);
 
         animator.SetBool("isMoving", false);
+    }
+
+    private void PlayAttackSound() {
+        switch (classType) {
+            case ClassType.Tank: GetComponent<PlaySound>().SoundPlay(); Debug.Log("Here"); break;
+        }
     }
 }
