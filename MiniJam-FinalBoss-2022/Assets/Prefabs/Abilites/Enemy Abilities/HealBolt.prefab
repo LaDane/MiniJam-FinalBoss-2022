@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d865603abd1b9e4ca77cb9e9d7c3b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationMultiplier: 0.08
-  isHeal: 0
+  durationMultiplier: 0.04
   endPos: {fileID: 0}
 --- !u!1 &5193035025314869939
 GameObject:

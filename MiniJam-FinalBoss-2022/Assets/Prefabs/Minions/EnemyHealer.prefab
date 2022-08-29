@@ -82,8 +82,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.91, y: 2.05, z: 0.58}
-  m_Center: {x: 0, y: 1.0474241, z: 0}
+  m_Size: {x: 0.91, y: 1.8, z: 0.58}
+  m_Center: {x: 0, y: 1.18, z: 0}
 --- !u!54 &51677607835714224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ NavMeshAgent:
   m_Radius: 0.4
   m_Speed: 11
   m_Acceleration: 100
-  avoidancePriority: 52
+  avoidancePriority: 50
   m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -335,7 +335,7 @@ MonoBehaviour:
   idealRange: 0
   isAlive: 1
   isAttacking: 0
-  attackAngleOffset: 50
+  attackAngleOffset: 0
   ragdollOnOff: {fileID: 29013127314598853}
   ragdollHips: {fileID: 792213017285443641}
 --- !u!114 &29013127314598853

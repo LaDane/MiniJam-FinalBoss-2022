@@ -17,7 +17,7 @@ public class AIUnit : MonoBehaviour {
 
     public float attackAngleOffset = 30f;
     [SerializeField] private RagdollOnOff ragdollOnOff;
-    [SerializeField] private Transform ragdollHips;
+    public Transform ragdollHips;
 
     private Transform childTransform;
     private float ragdollTimer;
@@ -91,6 +91,14 @@ public class AIUnit : MonoBehaviour {
                 // Fix child transform
                 childTransform.localRotation = Quaternion.identity;
                 childTransform.localPosition = Vector3.Lerp(childTransform.localPosition, Vector3.zero, 2f * Time.deltaTime);
+            }
+
+            if (!agent.isStopped && classType == ClassType.Healer) {
+                Vector3 targetDirection = AIManager.Instance.target.position - transform.position;
+                Quaternion spreadAngle = Quaternion.AngleAxis(attackAngleOffset, new Vector3(0, 1, 0));     // Offset look direction
+                targetDirection = spreadAngle * targetDirection;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 4f * Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDirection);
             }
         }
         else {

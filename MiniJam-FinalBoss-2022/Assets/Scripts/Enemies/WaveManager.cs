@@ -31,7 +31,7 @@ public class WaveManager : MonoBehaviour {
 
     //private int groupSize = 5;
     private float timeLeft;
-    private float waitBetweenInstantiate = 0.2f;
+    private float waitBetweenInstantiate = 0.1f;
 
     // Object pools
     private ObjectPool<GameObject> poolTank;
@@ -137,7 +137,7 @@ public class WaveManager : MonoBehaviour {
     }
 
     private Vector3 GetSpawnPos(int spawnPosIndex) {
-        Vector3 spawnPos = Random.insideUnitCircle * 4f;
+        Vector3 spawnPos = Random.insideUnitCircle * 6f;
         return spawnPositions[spawnPosIndex].position + spawnPos;
     }
 }

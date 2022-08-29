@@ -16,7 +16,8 @@ public class DamagePlayer : MonoBehaviour {
     public void DoDamage() {
         if ((classType == ClassType.Mage && projectileSpawnPos != null) || (classType == ClassType.Warlock && projectileSpawnPos != null)) {
             Vector3 direction = (PlayerAbilityManager.Instance.playerCenterPoint.position - projectileSpawnPos.position).normalized;
-            Instantiate(projectile, projectileSpawnPos.position, Quaternion.LookRotation(direction), null);
+            GameObject projectileGO = Instantiate(projectile, projectileSpawnPos.position, Quaternion.LookRotation(direction), null);
+            projectileGO.GetComponent<EnemyProjectile>().endPos = PlayerAbilityManager.Instance.playerCenterPoint;
         }
         PlayerHealthManager.Instance.DamagePlayer(classType);
     }

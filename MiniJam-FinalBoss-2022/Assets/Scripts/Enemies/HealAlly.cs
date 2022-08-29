@@ -16,23 +16,21 @@ public class HealAlly : MonoBehaviour {
     }
 
     private void Update() {
-        if (allyToHeal != null) {
-            if (bolt != null) {
-                enemyProjectile.endPos = allyToHeal;
-            }
+        if (allyToHeal != null && aiUnit.isAttacking) {
             Vector3 targetDirection = allyToHeal.position - transform.position;
-            Quaternion spreadAngle = Quaternion.AngleAxis(aiUnit.attackAngleOffset, new Vector3(0, 1, 0));     // Offset look direction
-            targetDirection = spreadAngle * targetDirection;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 4f * Time.deltaTime, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
+            Vector3 newDirection = Vector3.RotateTowards(aiUnit.transform.forward, targetDirection, 4f * Time.deltaTime, 0.0f);
+            aiUnit.transform.rotation = Quaternion.LookRotation(newDirection);
         }
     }
 
 
     public void Heal() {
-        allyToHeal = AIManager.Instance.units[Random.Range(0, AIManager.Instance.units.Count)].transform;
         Vector3 direction = (allyToHeal.position - projectileSpawnPos.position).normalized;
         bolt = Instantiate(projectile, projectileSpawnPos.position, Quaternion.LookRotation(direction), null);
-        enemyProjectile = bolt.GetComponent<EnemyProjectile>();
+        bolt.GetComponent<EnemyProjectile>().endPos = allyToHeal.GetComponent<AIUnit>().ragdollHips;
+    }
+
+    public void RotateTowardsAlly() {
+        allyToHeal = AIManager.Instance.units[Random.Range(0, AIManager.Instance.units.Count)].transform;
     }
 }
