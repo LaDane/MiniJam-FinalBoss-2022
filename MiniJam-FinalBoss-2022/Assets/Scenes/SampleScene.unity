@@ -1576,8 +1576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
-  playerMaxHP: 100
-  playerHP: 100
+  playerMaxHP: 125
+  playerHP: 125
   tankDmg: 6
   healerDmg: 0
   mageDmg: 2
@@ -5329,7 +5329,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  allUnlocked: 1
+  allUnlocked: 0
   abilities:
   - abilityName: Normal Attack
     animationName: NormalAttack
