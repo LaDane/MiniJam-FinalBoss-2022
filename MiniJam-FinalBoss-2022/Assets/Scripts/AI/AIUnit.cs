@@ -133,13 +133,8 @@ public class AIUnit : MonoBehaviour {
 
     private IEnumerator CheckIfMoving() {
         while (isAlive) {
-            if (!agent.isStopped) {
-                if (agent.remainingDistance < 0.5f) {
-                    SwitchStateAttacking();
-                }
-                else if (Vector3.Distance(AIManager.Instance.target.position, transform.position) < idealRange) {
-                    SwitchStateAttacking();
-                }
+            if (!agent.isStopped && Vector3.Distance(AIManager.Instance.target.position, transform.position) < idealRange) {
+                SwitchStateAttacking();
             }
             yield return new WaitForSeconds(0.5f);
         }
