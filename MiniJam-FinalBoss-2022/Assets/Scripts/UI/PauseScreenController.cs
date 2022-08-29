@@ -20,7 +20,7 @@ public class PauseScreenController : MonoBehaviour
     }
 
     public void OnAudioButtonPress() {
-        if (isMusicMuted) {
+        if (isSoundMuted) {
             audioMixer.SetFloat("soundVolume", 0f);
             isSoundMuted = false;
         } else {
