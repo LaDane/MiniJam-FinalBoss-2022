@@ -137,7 +137,13 @@ public class WaveManager : MonoBehaviour {
     }
 
     private Vector3 GetSpawnPos(int spawnPosIndex) {
-        Vector3 spawnPos = Random.insideUnitCircle * 6f;
-        return spawnPositions[spawnPosIndex].position + spawnPos;
+        //Vector3 spawnPos = Random.insideUnitCircle * 2f;
+        //return spawnPositions[spawnPosIndex].position + spawnPos;
+
+        float spawnOffset = 3f;
+        float x = spawnPositions[spawnPosIndex].position.x + Random.Range(-spawnOffset, spawnOffset);
+        float z = spawnPositions[spawnPosIndex].position.z + Random.Range(-spawnOffset, spawnOffset);
+
+        return new Vector3(x, spawnPositions[spawnPosIndex].position.y, z);
     }
 }
