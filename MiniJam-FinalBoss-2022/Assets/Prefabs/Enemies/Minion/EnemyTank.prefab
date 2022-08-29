@@ -1174,40 +1174,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9109737968597843834}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1612420022494321758
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8263300178889703979}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 26d3da49c15705a4f94fd445bd2191d0, type: 3}
-  m_Controller: {fileID: 9100000, guid: daeef5a52e844174fbd4dea6dd655cf8, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &628059441048539944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8263300178889703979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e22d8150ba8564985f4d9ed5a2b777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpawnPos: {fileID: 0}
-  projectile: {fileID: 0}
 --- !u!82 &8946033242435405247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1217,9 +1183,10 @@ AudioSource:
   m_GameObject: {fileID: 8263300178889703979}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7901488001945831138, guid: e039c740c4c8632488323bebeb45d8eb,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1304,6 +1271,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1612420022494321758
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8263300178889703979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 26d3da49c15705a4f94fd445bd2191d0, type: 3}
+  m_Controller: {fileID: 9100000, guid: daeef5a52e844174fbd4dea6dd655cf8, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &628059441048539944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8263300178889703979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e22d8150ba8564985f4d9ed5a2b777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawnPos: {fileID: 0}
+  projectile: {fileID: 0}
 --- !u!114 &9133016859112434083
 MonoBehaviour:
   m_ObjectHideFlags: 0
