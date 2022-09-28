@@ -1,6 +1,6 @@
 # The Molten Lair
 
-### Play and downloda the [Game on itch.io](https://ladane.itch.io/the-molten-lair)
+### Play and downloas the [Game on itch.io](https://ladane.itch.io/the-molten-lair)
 
 ## Game made for [MiniJam FinalBoss 2022](https://itch.io/jam/mini-jam-113-final-boss)
 
